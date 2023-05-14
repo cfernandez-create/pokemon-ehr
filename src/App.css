@@ -40,12 +40,6 @@ body
 .headerContainer
 {
   display: flex;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  flex-direction: column;
-=======
-=======
->>>>>>> Stashed changes
   height: 50%;
 }
 
@@ -196,12 +190,6 @@ list-style-type: none;
   margin-top: 150px;
   border-radius: 10px;
   background-color: #f7f7f7;
-<<<<<<< Updated upstream
-  justify-content: center;
->>>>>>> Stashed changes
-  align-items: center;
-=======
->>>>>>> Stashed changes
   justify-content: center;
   align-items: center;
 }
@@ -257,61 +245,6 @@ list-style-type: none;
   line-height: 28px;
 }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-=======
-.main-container {
-  display: flex;
-  position: fixed;
-  background-color: #f7f7f7;
-  height: 738px;
-  width: 1091px;
-  min-width: 500px;
-  max-width: calc(100vw - 530px);
-  top: 150px;
-  left: 530px;
-  border-radius: 10px;
-  z-index: 1;
-}
-
-.main-top-bar {
-  background-color: #C16D6D;
-  position: fixed;
-  height: 84px;
-  width: 1091px;
-  border-radius: 10px 10px 0 0;
-  z-index: 2;
-  display: flex;
->>>>>>> Stashed changes
-}
-
-.main-radio {
-  color: white;
-  padding: 5px;
-  padding-top: 40px;
-  padding-left: 8px;
-}
-
-.main-name {
-  position: absolute;
-  width: 65px;
-  height: 25px;
-  left: 70px;
-  top: 22px;
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-}
-
 .main-hp-text {
   position: absolute;
   width: 65px;
@@ -325,21 +258,6 @@ list-style-type: none;
   line-height: 28px;
 }
 
-=======
-.main-hp-text {
-  position: absolute;
-  width: 65px;
-  height: 25px;
-  left: 370px;
-  top: 22px;
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-}
-
->>>>>>> Stashed changes
 .main-status-text {
   position: absolute;
   width: 65px;
@@ -372,20 +290,12 @@ list-style-type: none;
 
 .main-hp {
   position: absolute;
-<<<<<<< Updated upstream
   left: 350px;
   width: 190px;
   margin-top: 58px;
   height: 10px;
   top: 60px;
   z-index: 2;
-=======
-  width: 150px;
-  height: 24px;
-  left: 3px;
-  top: 118px;
-  align-self: center;
->>>>>>> Stashed changes
   padding: 5px;
 }
 
@@ -569,11 +479,7 @@ list-style-type: none;
     left: 200px;
     width: 90px;
     height: 10px;
-<<<<<<< Updated upstream
     margin-top: 0px;
-=======
-    top: 60px;
->>>>>>> Stashed changes
     z-index: 2;
   }
 
