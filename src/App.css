@@ -1,38 +1,208 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+* 
+{
+  box-sizing: border-box;
+  color: #111111;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body 
+{
+  background-color: #97b2b8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App
+{
+  width: 100vw;
+  height: 100vh;
+}
+.container 
+{
+  max-width: 1440px;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header 
+{
+  position: fixed;
+  width: 100%;
+  /* max-width: 1440px; */
+  height: 112px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C16D6D;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 0px;
+  border-width: thin;
+}
+
+.headerContainer
+{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 50%;
+}
+
+.name-header
+{
+font-family: 'Roboto Condensed';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+padding-right: 5px;
+padding-left: 10px;
+}
+
+.maletag
+{
+  margin: 25px 0px ;
+  padding-right: 20px;
+}
+
+.lvl-header
+{
+  width: 115px;
+  height: 22px;
+  left: 12px;
+  top: 13px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.small-text-left
+{
+  position: absolute;
+  width: 281px;
+  height: 74px;
+  left: 12px;
+  top: 43px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2px;
+}
+
+.small-text-right
+{
+  position: absolute;
+  width: 281px;
+  height: 74px;
+  left: 252px;
+  top: 43px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2px;
+}
+
+.small-text-container
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-nav-container
+{
+  position: fixed;
+  width: 304px;
+  height: 270px;
+  margin-top: 550px;
+
+}
+
+.side-nav-list
+{
+  height: auto;
+  padding: 0;
+  width: 100%;
+
+}
+
+.side-nav-list .row 
+{
+width: 100%;
+height: 50px;
+background-color: #2D8FA5;
+border: 1px solid black;
+display: flex;
+padding: 10px;
+border-radius: 0 10px 10px 0;
+font-family: 'Roboto Condensed';
+list-style-type: none;
+padding-left: 10px;
+}
+
+.side-nav-list .row:hover 
+{
+width: 100%;
+height: 50px;
+background-color: #2d8fa586;
+border: 1px solid black;
+display: flex;
+padding: 10px;
+border-radius: 0 10px 10px 0;
+font-family: 'Roboto Condensed';
+list-style-type: none;
+}
+
+.side-nav-list .row.admit-item {
+  background-color: #6DC18F;
+}
+
+.side-nav-list .row.admit-item:hover {
+  background-color: #589b73e5;
+}
+
+.side-nav-list .row.discharge-item {
+  background-color: #B8B8B8;
+}
+
+.side-nav-list .row.discharge-item:hover {
+  background-color: #797979;
+}
+
+.SideImageContainer{
+  position: fixed;
+  border: solid;
+  height: 346px;
+  width: 304px;
+  background-color: aqua;
+  margin-top: 150px;
+  border-radius: 10px;
+  background-color: #f7f7f7;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon-sprite{
+  width: 400px;
+  height: 400px;
+  padding-right: 90px;
+  padding-bottom: 60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container {
+  position: absolute;
+  background-color: #f7f7f7;
+  height: 738px;
+  width: 1091px;
+  top: 150px;
+  left: 530px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.main-top-bar {
+  background-color: #C16D6D;
+  position: absolute;
+  height: 84px;
+  width: 1091px;
+  border-radius: 10px 10px 0 0;
+  z-index: 2;
 }
