@@ -188,10 +188,12 @@ list-style-type: none;
 }
 
 .main-container {
-  position: absolute;
+  position: fixed;
   background-color: #f7f7f7;
   height: 738px;
   width: 1091px;
+  min-width: 500px;
+  max-width: calc(100vw - 530px);
   top: 150px;
   left: 530px;
   border-radius: 10px;
@@ -200,9 +202,94 @@ list-style-type: none;
 
 .main-top-bar {
   background-color: #C16D6D;
-  position: absolute;
+  position: fixed;
   height: 84px;
   width: 1091px;
   border-radius: 10px 10px 0 0;
   z-index: 2;
+  display: flex;
+}
+
+.main-radio {
+  color: white;
+  padding: 5px;
+  padding-top: 20px;
+  padding-left: 8px;
+}
+
+.main-name {
+  position: absolute;
+  width: 65px;
+  height: 25px;
+  left: 70px;
+  top: 22px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+@media screen and (max-width: 810px) {
+  .main-container {
+    position: fixed;
+    background-color: #f7f7f7;
+    height: 738px;
+    width: 300px;
+    min-width: 480px;
+    max-width: calc(100vw - 530px);
+    top: 150px;
+    left: 330px;
+    border-radius: 10px;
+    z-index: 1;
+  }
+  .main-top-bar {
+    background-color: #C16D6D;
+    position: fixed;
+    height: 84px;
+    width: 300px;
+    min-width: 480px;
+    max-width: calc(100vw - 530px);
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+    display: flex;
+  }
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .side-nav-container{
+    display: none;
+  }
+
+  .SideImageContainer{
+    display: none;
+  }
+
+  .main-container {
+    position: fixed;
+    background-color: #f7f7f7;
+    height: 738px;
+    width: 300px;
+    min-width: 430px;
+    max-width: calc(100vw - 530px);
+    top: 150px;
+    left: 0px;
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
+  }
+  .main-top-bar {
+    background-color: #C16D6D;
+    position: fixed;
+    height: 84px;
+    width: 300px;
+    min-width: 430px;
+    max-width: calc(100vw - 530px);
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+    display: flex;
+    left: 0px;
+  }
+
 }

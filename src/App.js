@@ -1,4 +1,5 @@
 import './App.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
 import SideImage from './components/SideImage';
