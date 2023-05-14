@@ -1,6 +1,10 @@
 {
   "name": "pokemon-ehr",
+<<<<<<< Updated upstream
   "home": "https://cfernandez-create.github.io/pokemon-ehr/"
+=======
+  "home": "http://cfernandez-create.github.io/pokemon-ehr",
+>>>>>>> Stashed changes
   "version": "0.1.0",
   "private": true,
   "dependencies": {
