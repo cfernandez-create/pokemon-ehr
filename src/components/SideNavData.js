@@ -10,7 +10,7 @@ export const SideNavData = [
 {
     title: "STATUS BAR",
     icon: <FavoriteRoundedIcon />,
-    link:  "#",
+    link:  '#',
 },
 
 {

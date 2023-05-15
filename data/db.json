@@ -1,0 +1,43 @@
+
+    {
+        "admitdata": [
+            {
+            "id": 1,
+            "name": "Pikachu",
+            "gender": "",
+            "level": 99,
+            "trainer": "TRNR Ash",
+            "mrnumber": "V00235401",
+            "hp": 30,
+            "status": "burn",
+            "height": "",
+            "weight": ""
+            },
+
+            {
+            "id": 2,
+            "name": "Raichu",
+            "gender": "",
+            "level": 20,
+            "trainer": "TRNR Surge",
+            "mrnumber": "V00235402",
+            "hp": 50,
+            "status": "paralyzed",
+            "height": "",
+            "weight": ""  
+            },
+
+            {
+            "id": 3,
+            "name": "Charmander",
+            "gender": "",
+            "level": 35,
+            "trainer": "TRNR Chris",
+            "mrnumber": "V00235403",
+            "hp": 1,
+            "status": "burn",
+            "height": "",
+            "weight": ""  
+            }
+        ]
+    }

@@ -4,6 +4,8 @@ import SideNav from './components/SideNav';
 import TopNav from './components/TopNav';
 import SideImage from './components/SideImage';
 import Main from './components/Main';
+import Admit from './components/Admit';
+import {useState} from 'react';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <SideNav />
       <TopNav />
       <Main />
+       <Admit />
     
     </div>
   );
