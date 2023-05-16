@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { fetchAdmitData } from './Fetch'
 
 export default function Header() {
-  const [admitData, setAdmitData] = useState([]);
+const [admitData, setAdmitData] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3500/admitdata')
-      .then(response => {
-        setAdmitData(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    fetchAdmitData(setAdmitData);
   }, []);
+
+
+  if (admitData === null) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -25,14 +25,14 @@ export default function Header() {
           </div>
           <div className="small-text-container">
             <div className='small-text-left'>
-              <p className='smallText'>Species: Charmander</p>
+              <p className='smallText'>Species: {item.species}</p>
               <p className='smallText'>Trainer: {item.trainer}</p>
               <p className='smallText'>MRN: {item.mrnumber}</p>
             </div>
             <div className='small-text-right'>
-              <p className='smallText'>Type: Fire</p>
-              <p className='smallText'>Height (ft): 3′04″</p>
-              <p className='smallText'>Weight (lbs): 25.2</p>
+              <p className='smallText'>Type: {item.type}</p>
+              <p className='smallText'>Height (ft): 1′04″</p>
+              <p className='smallText'>Weight (lbs): 13.2</p>
             </div>
           </div>
         </div>
