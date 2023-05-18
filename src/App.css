@@ -1,32 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-* 
-{
+* {
   box-sizing: border-box;
   color: #111111;
 }
 
-body 
-{
+body {
   background-color: #808080;
 }
 
-.App
-{
-  width: 100vw;
-  height: 100vh;
-}
-.container 
-{
+.container {
   max-width: 1440px;
   width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.header 
-{
+.header {
   position: fixed;
   width: 100%;
-  /* max-width: 1440px; */
   height: 112px;
   top: 0;
   left: 50%;
@@ -39,31 +32,27 @@ body
   z-index: 1;
 }
 
-.header-container
-{
+.header-container {
   display: flex;
   height: 50%;
 }
 
-.name-header
-{
-font-family: 'Roboto Condensed';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 28px;
-padding-right: 5px;
-padding-left: 10px;
+.name-header {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  padding-right: 5px;
+  padding-left: 10px;
 }
 
-.maletag
-{
-  margin: 25px 0px ;
+.maletag {
+  margin: 25px 0px;
   padding-right: 20px;
 }
 
-.lvl-header
-{
+.lvl-header {
   width: 115px;
   height: 22px;
   left: 12px;
@@ -75,8 +64,7 @@ padding-left: 10px;
   line-height: 28px;
 }
 
-.small-text-left
-{
+.small-text-left {
   position: absolute;
   width: 281px;
   height: 74px;
@@ -89,8 +77,7 @@ padding-left: 10px;
   line-height: 2px;
 }
 
-.small-text-main
-{
+.small-text-main {
   position: absolute;
   width: 281px;
   height: 74px;
@@ -103,8 +90,7 @@ padding-left: 10px;
   line-height: 2px;
 }
 
-.small-text-right
-{
+.small-text-right {
   position: absolute;
   width: 281px;
   height: 74px;
@@ -117,19 +103,422 @@ padding-left: 10px;
   line-height: 2px;
 }
 
-.small-text-container
-{
+.small-text-container {
   display: flex;
   justify-content: space-between;
 }
 
-.side-nav-container
+.header-container {
+  width: 100vw;
+  display: flex;
+}
+
+.main-container {
+  position: absolute;
+  background-color: #808080;
+  height: calc(100vh - 170px);
+  width: 50vw;
+  top: 22%;
+  left: 35.4%;
+  z-index: 1;
+  overflow-y: auto;
+  flex: 1;
+  border-top: none;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.main-top-bar {
+  background: linear-gradient(45deg, #cc7777, #eb2f2f);
+  position: fixed;
+  top: 18%;
+  height: 60px;
+  width: 50vw;
+  border: 1px solid;
+  z-index: 2;
+  display: flex;
+  left: 35.4%;
+  justify-content: space-between;
+}
+
+.main-name {
+  position: absolute;
+  width: 30%;
+  height: 25px;
+  left: 55px;
+  top: -10px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 28px;
+}
+
+.main-hp-text {
+  position: absolute;
+  width: 30%;
+  height: 25px;
+  left: 50%;
+  top: -10px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 28px;
+}
+
+.main-status-text {
+  position: absolute;
+  width: 65px;
+  height: 25px;
+  left: 75%;
+  top: -10px;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 28px;
+}
+
+.pokemon-container {
+  width: 50vw;
+  margin-top: 0;
+  background-color: #808080;
+  flex: 1;
+  height: 150vh;
+  overflow-y: scroll;
+}
+
+.card-image {
+  height: 115px;
+  margin-top: 60px;
+  margin-left: -4%;
+  font-size: 0.78rem;
+  font-family: 'Lato';
+  font-style: normal;
+  width: 50px;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  padding-right: 55px;
+}
+
+.card-name {
+  height: 115px;
+  margin-top: -115px;
+  margin-left: 10%;
+  font-size: 0.78rem;
+  font-family: 'Lato';
+  font-style: normal;
+  width: 120px;
+  z-index: 1;
+}
+
+.card-hp {
+  margin-top: -119px;
+  margin-left: 50%;
+  font-family: 'Lato';
+  font-style: normal;
+  width: 90px;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.card-status {
+  height: 115px;
+  margin-top: -70px;
+  margin-left: 75%;
+  font-size: 0.8rem;
+  font-family: 'Lato';
+  font-style: normal;
+  width: 90px;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  font-weight: bold;
+  border-radius: 50px;
+}
+
+.burnStatus {
+  border-radius: 5px;
+  justify-content: center;
+  align-self: center;
+  font-size: 0.7rem;
+}
+
+.card {
+  background-color: #808080;
+}
+
+.selected {
+  border: solid;
+  background-color: #d3d3d3;
+}
+
+.side-nav-container {
+  position: fixed;
+  width: 304px;
+  height: 100vh;
+  margin-top: 45%;
+  padding-bottom: 200px;
+}
+
+.side-nav-list {
+  height: auto;
+  padding: 0;
+  width: auto;
+  padding-bottom: 200px;
+  margin-top: -41%;
+}
+
+.side-nav-list .row {
+  width: 100%;
+  height: auto;
+  background-color: #2D8FA5;
+  border: 1px solid black;
+  display: flex;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  font-family: 'Roboto Condensed';
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.side-nav-list .row:hover {
+  width: 100%;
+  height: 50px;
+  background-color: #2d8fa586;
+  border: 1px solid black;
+  display: flex;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  font-family: 'Roboto Condensed';
+  list-style-type: none;
+}
+
+.side-nav-list .row.admit-item {
+  background-color: #6DC18F;
+}
+
+.side-nav-list .row.admit-item:hover {
+  background-color: #589b73e5;
+}
+
+.side-nav-list .row.discharge-item {
+  background-color: #B8B8B8;
+}
+
+.side-nav-list .row.discharge-item:hover {
+  background-color: #797979;
+}
+
+.SideImageContainer {
+  position: fixed;
+  border: solid;
+  height: 30%;
+  width: 21%;
+  background-color: aqua;
+  margin-top: 11%;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-sprite {
+  width: 110%;
+  height: 110%;
+  padding-right: 40px;
+  padding-bottom: 60px;
+}
+
+.top-nav-container {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  
+
+  .header-container{
+    width: 100vw;
+    display: flex;
+  }
+
+  .main-container {
+    position: absolute;
+    background-color: #808080;
+    height: calc(100vh - 170px);
+    width: 50vw;
+    top: 15%;
+    left: 50%;
+    z-index: 1;
+    overflow-y:auto;
+    flex: 1;
+    border: 1px solid;
+  }
+  .main-top-bar {
+    background: linear-gradient(45deg, #cc7777, #eb2f2f);
+    position: fixed;
+    height: 44px;
+    width: 50vw;
+    border: 1px solid;
+    z-index: 2;
+    display: flex;
+    left: 35.4%;
+    justify-content: space-between;
+  }
+
+
+  .main-name {
+    position: absolute;
+    width: 30%;
+    height: 25px;
+    left: 55px;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+    
+  }
+
+  .main-hp-text
+  {
+    position: absolute;
+    width:30%;
+    height: 25px;
+    left: 50%;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+  }
+
+  .main-status-text
+  {
+    position: absolute;
+    width: 65px;
+    height: 25px;
+    left: 75%;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+  }
+
+  /* .small-text-main
+  {
+    position: absolute;
+    width:30%;
+    height: 25px;
+    left: 50%;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2px;
+  } */
+
+
+  .pokemon-container{
+    width: 50vw;
+    margin-top: -1px;
+    background-color: #808080;
+    flex: 1;
+    height: 150vh;
+    overflow-y: scroll;
+    
+  }
+
+  .card-image{
+    height: 115px;
+    margin-top: 60px;
+    margin-left: -4%;
+    font-size: 0.78rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 50px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    padding-right: 55px;
+  }
+
+  .card-name{
+    height: 115px;
+    margin-top: -115px;
+    margin-left: 10%;
+    font-size: 0.78rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 120px;
+    z-index: 1;
+  }
+
+  .card-hp
+  {
+    margin-top: -119px;
+    margin-left: 50%;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 90px;
+    z-index: 2;
+    justify-content: center;
+    align-items:center;
+    padding-top: 40px;
+  }
+
+  .card-status
+  {
+    height: 115px;
+    margin-top: -70px;
+    margin-left: 75%;
+    font-size: 0.8rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 90px;
+    z-index: 2;
+    justify-content: center;
+    align-items:center;
+    padding-top: 40px;
+    font-weight: bold;
+    border-radius: 50px;
+  }
+
+  .burnStatus{
+    border-radius: 5px;
+    justify-content: center;
+    align-self: center;
+    font-size: 0.7rem;
+  }
+
+  .card{
+    background-color: #808080;
+  }
+
+  .selected{
+    border: solid;
+    background-color: #d3d3d3;
+  }
+
+  .side-nav-container
 {
   position: fixed;
   width: 304px;
-  height: 270px;
-  margin-top: 550px;
-
+  height: 100vh;
+  margin-top: 45%;
 }
 
 .side-nav-list
@@ -137,7 +526,6 @@ padding-left: 10px;
   height: auto;
   padding: 0;
   width: 100%;
-
 }
 
 .side-nav-list .row 
@@ -189,7 +577,7 @@ list-style-type: none;
   height: 346px;
   width: 304px;
   background-color: aqua;
-  margin-top: 150px;
+  margin-top: 11.5%;
   border-radius: 10px;
   background-color: #f7f7f7;
   justify-content: center;
@@ -203,136 +591,10 @@ list-style-type: none;
   padding-bottom: 60px;
 }
 
-.main-container {
-  display: flex;
-  position: fixed;
-  background-color: #808080;
-  height: 100vh;
-  width: 100vw;
-  top: 50px;
-  margin-left: -150px;
-}
-
-.main-top-bar {
-  background-color: #C16D6D;
-  position: fixed;
-  height: 84px;
-  width: 100vw;
-  z-index: 2;
-  display: flex;
-  margin-left: 0;
-}
-
-.main-name {
-  position: absolute;
-  width: 65px;
-  height: 25px;
-  left: 70px;
-  top: 22px;
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-.main-hp-text {
-  position: absolute;
-  width: 65px;
-  height: 25px;
-  left: 370px;
-  top: 22px;
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-}
-
-.main-status-text {
-  position: absolute;
-  width: 65px;
-  height: 25px;
-  left: 670px;
-  top: 22px;
-  font-family: 'Roboto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
 }
 
 
-
-.small-text-main
-{
-position: absolute;
-width: 281px;
-height: 74px;
-left: 70px;
-top: 98px;
-font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 1rem;
-line-height: 2px;
-
-}
-
-.main-hp {
-position: absolute;
-left: 350px;
-width: 190px;
-margin-top: 58px;
-height: 10px;
-top: 60px;
-z-index: 2;
-padding: 5px;
-}
-
-.burn-status
-{
-position: absolute;
-width: 50px;
-height: 24px;
-left: 680px;
-top: 108px;
-font-family: 'Lato';
-font-style: normal;
-font-weight: 800;
-font-size: .8rem;
-line-height: 10px;
-background-color: orange;
-align-self: center;
-padding: 5px;
-border: solid;
-}
-
-.top-nav-container{
-  display: none;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
- 
-.Admit{
-  position: absolute;
-  width: 50%;
-  margin-top: 300px;
-  margin-left: 350px;
-  flex: 1;
-  height: 50%;
-  overflow-y: auto;
-  border: solid;
-}
-
-
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 810px) {
   .side-nav-container{
     display: none;
   }
@@ -417,7 +679,7 @@ border: solid;
     min-width: 430px;
     max-height: calc(100vh - 170px);
     top: 170px;
-    left: 150px;
+    left: 0%;
     z-index: 1;
     overflow:auto;
   }
@@ -430,6 +692,251 @@ border: solid;
     z-index: 2;
     display: flex;
     left: 0px;
+    justify-content: space-between;
+    top: 15.6%;
+  }
+
+
+  .main-name {
+    position: absolute;
+    width: 30%;
+    height: 25px;
+    left: 55px;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+    
+  }
+
+  .main-hp-text
+  {
+    position: absolute;
+    width:30%;
+    height: 25px;
+    left: 50%;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+  }
+
+  .main-status-text
+  {
+    position: absolute;
+    width: 65px;
+    height: 25px;
+    left: 75%;
+    top: -10px;
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 28px;
+  }
+
+  .small-text-main
+  {
+    position: absolute;
+    width: 281px;
+    height: 74px;
+    left: 70px;
+    top: 43px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: .8rem;
+    line-height: 2px;
+  }
+
+
+  .pokemon-container{
+    position: absolute;
+    width: 100%;
+    margin-top: -1px;
+    background-color: #808080;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .card-image{
+    height: 115px;
+    margin-top: 60px;
+    margin-left: -3%;
+    font-size: 0.78rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 50px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    padding-right: 55px;
+  }
+
+  .card-name{
+    position: absolute;
+    height: 115px;
+    margin-top: -115px;
+    margin-left: 10%;
+    font-size: 0.78rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 120px;
+    z-index: 1;
+  }
+
+  .card-hp
+  {
+    
+    margin-top: -119px;
+    margin-left: 50%;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 90px;
+    z-index: 2;
+    justify-content: center;
+    align-items:center;
+    padding-top: 40px;
+  }
+
+  .card-status
+  {
+    height: 115px;
+    margin-top: -70px;
+    margin-left: 75%;
+    font-size: 0.8rem;
+    font-family: 'Lato';
+    font-style: normal;
+    width: 90px;
+    z-index: 2;
+    justify-content: center;
+    align-items:center;
+    padding-top: 40px;
+    font-weight: bold;
+    border-radius: 50px;
+  }
+
+  .burnStatus{
+    border-radius: 5px;
+    justify-content: center;
+    align-self: center;
+    font-size: 0.7rem;
+  }
+
+  .card{
+    background-color: #808080;
+  }
+
+  .selected{
+    border: solid;
+    background-color: #d3d3d3;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .side-nav-container{
+    display: none;
+  }
+
+  .header-container{
+    width: 100vw;
+    display: flex;
+  }
+
+  .top-nav-container {
+    display:block;
+    /* background-color: #2D8FA5; */
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    margin-top: 117px;
+    border-radius: 10px;
+    justify-content: space-between;
+  }
+  
+  .top-nav-list {
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    margin-top: -8px;
+    margin-left: -8px;
+    justify-content: left;
+    align-items: right;
+  }
+  
+  .top-nav-list .row {
+    width: 90%;
+    height: 100%;
+    background-color: #2D8FA5;
+    border: 1px solid rgb(0, 0, 0);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #3cc2e0, #257688);
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Roboto Condensed';
+    list-style-type: none;
+    padding: 10px;
+    justify-content: center;
+  }
+
+.top-nav-list .row:hover 
+{
+  
+  background: linear-gradient(45deg, #25778a, #37adc7);
+
+ 
+}
+
+.top-nav-list .row.admit-item {
+ 
+  background: linear-gradient(45deg, #89fab6, #0f552c);
+}
+
+.top-nav-list .row.admit-item:hover {
+  background: linear-gradient(45deg, #4d8a65, #80e2a9);
+}
+
+.top-nav-list .row.discharge-item {
+  background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
+}
+
+.top-nav-list .row.discharge-item:hover {
+  background: linear-gradient(45deg, #525151, #999898);
+}
+
+  .SideImageContainer{
+    display: none;
+  }
+
+  .main-container {
+    position: fixed;
+    background-color: #808080;
+    height: 100vh;
+    width: 100vw;
+    min-width: 430px;
+    max-height: calc(100vh - 170px);
+    top: 23%;
+    left: 0%;
+    z-index: 1;
+    overflow:auto;
+  }
+  .main-top-bar {
+    background: linear-gradient(45deg, #cc7777, #eb2f2f);
+    position: fixed;
+    height: 7%;
+    width: 100vw;
+    border: 1px solid;
+    z-index: 2;
+    display: flex;
+    left: 0px;
+    top: 21.1%;
   }
 
 
@@ -493,7 +1000,7 @@ border: solid;
   .pokemon-container{
     position: absolute;
     width: 100%;
-    margin-top: -1px;
+    margin-top: -5%;
     background-color: #808080;
     flex: 1;
     height: 100%;

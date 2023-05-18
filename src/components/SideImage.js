@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+export default function SideImage({ selectedCardId, admitData }) {
+  if (!admitData) {
+    return <div className='SideImageContainer'>Loading..</div>;
+  }
+
+  const selectedCard = admitData.find((item) => item.id === selectedCardId);
+
+  if (!selectedCard) {
+    return <div className='SideImageContainer'>Loading.....</div>;
+  }
 
 
-export default function SideImage() {
-    const [spriteUrl, setSpriteUrl] = useState('');
-
-    useEffect(() => {
-        const fetchSprite = async () => {
-          try {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon/pikachu');
-            const data = await response.json();
-            const spriteUrl = data.sprites.front_default;
-            setSpriteUrl(spriteUrl);
-          } catch (error) {
-            console.error('Error fetching Pikachu sprite:', error);
-          }
-        };
-    
-        fetchSprite();
-      }, []);
-    
-      return (
-        <div className='SideImageContainer'> 
-          <img src={spriteUrl} alt="Pokemon Sprite" className="pokemon-sprite"/>
+  console.log(selectedCard.img);
+  return (
+    <div>
+      <div className='SideImageContainer' key={selectedCard.id}>
+      <div className="card-image">
+      <img src= {selectedCard.img}/></div>
         </div>
-      );
-    }
-
+      </div>
+  
+  );
+}

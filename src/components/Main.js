@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchAdmitData } from './Fetch';
 import Pokecard from './Pokecard'
 import Header from './Header';
+import SideImage from './SideImage';
 
 
 export default function Main() {
@@ -29,8 +30,7 @@ export default function Main() {
   return (
     <div className="main-container">
       <div className="main-top-bar">
-        <div className="main-radio">
-        </div>
+       
         <div className="main-name">
           <p>Pokemon</p>
         </div>
@@ -53,6 +53,14 @@ export default function Main() {
 
       {selectedCardId !== null && (
       <Header
+          selectedCardId={selectedCardId}
+          admitData={admitData}
+          selectedCardData={selectedCardData}
+        />
+      )}
+
+      {selectedCardId !== null && (
+      <SideImage
           selectedCardId={selectedCardId}
           admitData={admitData}
           selectedCardData={selectedCardData}
