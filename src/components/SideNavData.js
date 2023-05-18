@@ -28,7 +28,6 @@ export const SideNavData = [
 {
     title: "DISCHARGE",
     icon: <RemoveRoundedIcon />,
-    link:  "#",
 },
 
 {

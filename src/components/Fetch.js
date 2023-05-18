@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchAdmitData = (setAdmitData) => {
-  axios.get('http://localhost:3500/admitdata')
+  axios.get('https://my-json-server.typicode.com/cfernandez-create/api/admitdata')
     .then(response => {
       setAdmitData(response.data);
     })
