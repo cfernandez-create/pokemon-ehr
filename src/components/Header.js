@@ -17,7 +17,6 @@ export default function Header({ selectedCardId, admitData}) {
       <div className='header' key={selectedCard.id}>
         <div className='header-container'>
           <h3 className='name-header'>{selectedCard.name}</h3>
-          <span className='maletag' style={{ color: 'blue' }}>♂</span>
           <h3 className='lvl-header'>Lvl. {selectedCard.level}</h3>
         </div>
         <div className="small-text-container">
@@ -28,8 +27,8 @@ export default function Header({ selectedCardId, admitData}) {
           </div>
           <div className='small-text-right'>
             <p className='smallText'>Type: {selectedCard.type}</p>
-            <p className='smallText'>Height (ft): 1′04″</p>
-            <p className='smallText'>Weight (lbs): 13.2</p>
+            <p className='smallText'>Height (ft): {selectedCard.height}</p>
+            <p className='smallText'>Weight (lbs): {selectedCard.weight}</p>
           </div>
         </div>
       </div>

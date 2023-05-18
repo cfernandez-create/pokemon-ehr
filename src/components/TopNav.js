@@ -4,13 +4,12 @@ import { SideNavData } from './SideNavData';
 
 
 function TopNav(props) {
-  const { handleOpenPopup, handleDeletePokemon } = props;
+  const { handleOpenPopup, handleDeleteAdmitData, selectedCardId={selectedCardId} } = props;
   
 
   const handleDischargeClick = () => {
     console.log('DISCHARGE icon clicked');
-    handleDeletePokemon();
-    
+    handleDeleteAdmitData(selectedCardId);
   };
 
   return (

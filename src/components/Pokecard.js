@@ -27,7 +27,7 @@ const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
   return (
     <div className={`card ${isSelected ? 'selected' : ''}`} onClick={handleClick}>
       <div className="card-image">
-        <img src={setAdmitData.img} alt="Pokemon" />
+        <img src={setAdmitData.img} alt="Pokemon" className="poke-img"/>
       </div>
       <div className="card-name">
         <p className="smallText">Name: {setAdmitData.name}</p>
