@@ -3,9 +3,12 @@ import { fetchAdmitData } from './Fetch';
 import Pokecard from './Pokecard'
 import Header from './Header';
 import SideImage from './SideImage';
+import Admit from './Admit';
+import TopNav from './TopNav'
 
 
 export default function Main() {
+  
  const [admitData, setAdmitData] = useState([]);
  const [selectedCardId, setSelectedCardId] = useState(null);
  const [selectedCardData, setSelectedCardData] = useState(null);

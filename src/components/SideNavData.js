@@ -22,7 +22,6 @@ export const SideNavData = [
 {
     title: "ADMIT",
     icon: <AddRoundedIcon />,
-    link:  "#",
 },
 
 {

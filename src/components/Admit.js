@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import pokemonOptions from './pokemonOptions';
 import '../Admit.css';
 import CustomSelect from 'react-select';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Axios from 'axios';
+import TopNav from './TopNav'
 
 
 const statusOptions = [
@@ -20,12 +22,16 @@ const colourStyles = {
   control: (styles) => ({
     ...styles,
     backgroundColor: 'white',
-    width: '130px'
+    width: '130px',
+    maxHeight: '100px',
+    overflowY: 'auto',
   }),
   option: (styles, { data }) => ({
     ...styles,
     color: data.color,
-    width: '110px'
+    width: '110px',
+    maxHeight: '200px',
+    overflowY: 'auto',
   }),
   singleValue: (styles, { data }) => ({
     ...styles,
@@ -34,49 +40,134 @@ const colourStyles = {
   }),
   menu: (styles) => ({
     ...styles,
-    width:'50%'
+    width:'50%',
+    maxHeight: '100px',
+    overflowY: 'auto',
+    pointerEvents: 'auto',
   })
 };
 
 
 
-export default function Admit() {
+export default function Admit(props) {
+  const { handleClosePopup } = props;
   const [species, setSpecies] = useState('');
   const [status, setStatus] = useState('');
   const [filteredOptions, setFilteredOptions] = useState([]);
+  const [name, setName] = useState('');
+  const [level, setLevel] = useState(0);
+  const [trainer, setTrainer] = useState('');
+  const [mrnumber, setMrNumber] = useState('');
+  const [incrementingNumber, setIncrementingNumber] = useState(0);
+  const [type, setType] = useState(0);
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [matchedOption, setMatchedOption] = useState(null);
+  const [number, setNumber] = useState(0);
+  const [img, setImg] = useState('');
+  const [isAdmitContainerVisible, setAdmitContainerVisible] = useState(true);
 
-  const handleSpeciesChange = (event) => {
-    const { value } = event.target;
-    setSpecies(value);
-    filterOptions(value);
+  function getRandomNumber() {
+    return Math.floor(Math.random() * 100) +1;
+  }
+
+  const randomHp = getRandomNumber();
+
+  const handleCancelButtonClick = () => {
+    handleClosePopup();
   };
 
-  const filterOptions = (searchTerm) => {
-    if (searchTerm === '') {
-      setFilteredOptions([]);
-    } else {
-      const filtered = pokemonOptions.filter(
-        (pokemon) =>
-          pokemon.label.toLowerCase().startsWith(searchTerm.toLowerCase())
+
+  const addPokemon = () => {
+    Axios.post('http://localhost:3001/create', {
+      name: name,
+      species: species,
+      type: type,
+      level: level,
+      trainer: trainer,
+      hp: randomHp,
+      status: status,
+      height: height,
+      weight: weight,
+      mrnumber: mrnumber,
+      img: img,
+    }).then(()=>{
+      console.log('Success!');
+    })
+  };
+
+  useEffect(() => {
+    const now = new Date();
+    const timeInSeconds = String(now.getSeconds()).padStart(2, '0');
+  
+    setMrNumber(`P00${timeInSeconds}${incrementingNumber}`);
+    }, [incrementingNumber]);
+
+  useEffect(()=> {
+    setIncrementingNumber(prevIncrementingNumber => prevIncrementingNumber + 1);
+  }, []);
+  
+
+    const handleSpeciesChange = (event) => {
+    const { value } = event.target;
+    const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+    setSpecies(capitalizedValue);
+
+    const matched = pokemonOptions.find(
+      (pokemon) =>
+        pokemon.label.toLowerCase().includes(value.toLowerCase())
       );
-      setFilteredOptions(filtered);
+
+    if (matched) {
+      setMatchedOption(matched);
+      setType(matched.types);
+      setHeight(matched.height);
+      setWeight(matched.weight);
+      setNumber(matched.number);
+      setImg(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${matched.number}.png`);
+    } else {
+      setMatchedOption(null);
+      setType('');
+      setHeight('');
+      setWeight('');
+      setNumber('');
+      setImg('');
     }
   };
 
-
-
+  const handleAutofill = () => {
+    if (matchedOption) {
+      setSpecies(matchedOption.label);
+      setType(matchedOption.type);
+      setHeight(matchedOption.height);
+      setWeight(matchedOption.weight);
+      setNumber(matchedOption.number);
+      setImg(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${matchedOption.number}.png`);
+    }
+  };
+  
   const handleStatusChange = (selectedOption) => {
-    setStatus(selectedOption.value);
+       setStatus(selectedOption.value);
   }
 
+  const hideAdmitContainer = () => {
+    setAdmitContainerVisible(false);
+  };
+
   return (
-    <div className="Admit">
+    <div>
+    {isAdmitContainerVisible && (
+      <div className={`Admit ${isAdmitContainerVisible ? 'visible' : 'hidden'}`}>
       <div className='admit-container'>
       <div className='admit-name'><label>Name: </label>
-      <input type="text" /></div>
+      <input type="text" 
+      onChange={(event) => 
+      {setName(event.target.value);}}/></div>
 
-      <div className='admit-lvl'><label>Lvl: </label>
-      <input type="number" min="1" max="100"/></div>
+      <div className='admit-lvl' ><label>Lvl: </label>
+      <input type="number" min="1" max="100" placeholder='1-100'
+      onChange={(event) => 
+        {setLevel(event.target.value);}}/></div>
 
       <div className='admit-spieces'>
       <label>Species: </label>
@@ -84,6 +175,7 @@ export default function Admit() {
         type="text"
         value={species}
         onChange={handleSpeciesChange}
+        onFocus={handleAutofill}
         placeholder="Search species..."
       /></div>
 
@@ -94,7 +186,8 @@ export default function Admit() {
       </div>
 
       <div className='admit-trainer'><label>Trainer Name: </label>
-      <input type="text" /></div>
+      <input type="text" onChange={(event) => 
+      {setTrainer(event.target.value);}}/></div>
   
       <div className='admit-status'>
       <label>Status: </label>
@@ -105,20 +198,19 @@ export default function Admit() {
         onChange={handleStatusChange}
         /></div>
 
+      <div className='admit-buttons'>
+        <Stack direction="row" spacing={2}>
+        <Button variant="contained" color="success" onClick={addPokemon}>
+          SUBMIT
+        </Button>
+        <Button variant="outlined" color="error" onClick={handleCancelButtonClick}>
+          CLOSE
+        </Button>
+      </Stack>
+      </div>
 
-
-    <div className='admit-buttons'>
-      <Stack direction="row" spacing={2}>
-      <Button variant="contained" color="success">
-        SUBMIT
-      </Button>
-      <Button variant="outlined" color="error">
-        CLOSE
-      </Button>
-    </Stack>
     </div>
-
-</div>
     </div>
+        )}</div>
   );
 }

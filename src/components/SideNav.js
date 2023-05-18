@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import {SideNavData} from './SideNavData';
 
-function SideNav()
-{
+function SideNav(props) {
+const { handleOpenPopup } = props;
+
+const handleDischargeClick = () => {
+  
+  console.log('DISCHARGE icon clicked');
+
+};
+
 return (
 <div className="side-nav-container">
     <ul className="side-nav-list">
        {SideNavData.map((val, key) => {
         return (
-            <li key={key} className={val.title === "ADMIT" ? "row admit-item" : val.title === "DISCHARGE" ? "row discharge-item" : "row"} onClick={() => { window.location.pathname = val.link }}>
-            <div>{val.icon}</div>
-            <div>{val.title}</div>
-          </li>
+          <li
+          key={key}
+          className={val.title === 'ADMIT' ? 'row admit-item' 
+          : val.title === 'DISCHARGE' ? 'row discharge-item' 
+          : 'row'}>
+          <div onClick={val.title === 'ADMIT' ? handleOpenPopup : handleDischargeClick}>{val.icon}</div>
+        </li>
         );
       })}
      </ul>

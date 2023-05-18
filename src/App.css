@@ -254,10 +254,6 @@ body {
   background-color: #808080;
 }
 
-.selected {
-  border: solid;
-  background-color: #d3d3d3;
-}
 
 .side-nav-container {
   position: fixed;
@@ -506,11 +502,6 @@ body {
 
   .card{
     background-color: #808080;
-  }
-
-  .selected{
-    border: solid;
-    background-color: #d3d3d3;
   }
 
   .side-nav-container
@@ -832,10 +823,7 @@ list-style-type: none;
     background-color: #808080;
   }
 
-  .selected{
-    border: solid;
-    background-color: #d3d3d3;
-  }
+ 
 }
 
 @media screen and (max-width: 480px) {
@@ -1074,13 +1062,9 @@ list-style-type: none;
     background-color: #808080;
   }
 
-  .selected{
-    border: solid;
-    background-color: #d3d3d3;
-  }
-
   .dlt-container{
     background-color: black;
   }
  
+  
 } 
