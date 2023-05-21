@@ -4,7 +4,7 @@ import { SideNavData } from './SideNavData';
 
 
 function TopNav(props) {
-  const { handleOpenPopup, handleDeleteAdmitData, selectedCardId={selectedCardId} } = props;
+  const { handleOpenPopup, handleDeleteAdmitData, selectedCardId } = props;
   
 
   const handleDischargeClick = () => {

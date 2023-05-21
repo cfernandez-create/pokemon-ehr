@@ -1,28 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { fetchAdmitData } from './Fetch';
-import { deleteAdmitData } from './Delete';
 import Pokecard from './Pokecard'
 import Header from './Header';
 import SideImage from './SideImage';
 import TopNav from './TopNav';
 import Popup from './Popup';
+import axios from 'axios';
+import { baseURL } from "../utils/constant";
 
 export default function Main() {
   const [openPopup, setOpenPopup] = useState(false);
   const [admitData, setAdmitData] = useState([]);
   const [selectedCardId, setSelectedCardId] = useState(null);
   const [selectedCardData, setSelectedCardData] = useState(null);
+ 
+  
+
+
 
   useEffect(() => {
-    fetchAdmitData(setAdmitData);
+   axios.get(`${baseURL}/get`).then((res) => {
+    console.log(res.data);
+    setAdmitData(res.data)
+   });
   }, []);
 
-  const handleDeleteAdmitData = (id) => {
-    deleteAdmitData(id, handleDeleteSuccess, handleDeleteError);
+  const deleteAdmit = (_id) => {
+    return axios.delete(`${baseURL}/delete/${_id}`).then((res)=> {
+      console.log(res);
+      return res.data; 
+    });
+  }
+
+
+  const handleDeleteAdmitData = (_id) => {
+    deleteAdmit(_id).then(handleDeleteSuccess)
+    .catch(handleDeleteError);
   };
 
   const handleDeleteSuccess = (data) => {
     console.log('Record deleted:', data);
+    window.location.reload()
   };
 
   const handleDeleteError = (error) => {
@@ -68,9 +85,9 @@ export default function Main() {
           {admitData.map((item, index) => (
             <Pokecard
               setAdmitData={item}
-              key={item.id}
-              index={item.id}
-              handleCardClick={() => handleCardClick(item.id, item)}
+              key={item._id}
+              index={item._id}
+              handleCardClick={() => handleCardClick(item._id, item)}
             />
           ))}
         </div>

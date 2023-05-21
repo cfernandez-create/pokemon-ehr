@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {SideNavData} from './SideNavData';
 
 function SideNav(props) {
@@ -20,7 +20,7 @@ return (
           className={val.title === 'ADMIT' ? 'row admit-item' 
           : val.title === 'DISCHARGE' ? 'row discharge-item' 
           : 'row'}>
-          <div onClick={val.title === 'ADMIT' ? handleOpenPopup : handleDischargeClick}>{val.icon}</div>
+          <div onClick={val.title === 'ADMIT' ? handleOpenPopup : handleDischargeClick}>{val.icon}{val.title}</div>
         </li>
         );
       })}

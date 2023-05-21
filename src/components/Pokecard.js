@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProgressBar from '@ramonak/react-progress-bar';
-import Axios from 'axios';
+
 
 const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -8,7 +8,6 @@ const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
   const handleClick = () => {
     setIsSelected(!isSelected);
     handleCardClick();
-    console.log('Selected card ID: ', index);
   };
   
 

@@ -1,23 +1,19 @@
 import React from 'react';
 
-export default function SideImage({ selectedCardId, admitData }) {
-  if (!admitData) {
-    return <div className='SideImageContainer'>Loading..</div>;
+export default function SideImage({ selectedCardId, admitData, }) {
+  if (!admitData || admitData.length === 0) {
+    return <div className='SideImageContainer'>Loading...</div>;
   }
 
-  const selectedCard = admitData.find((item) => item.id === selectedCardId);
+  const selectedCard = admitData.find((item) => item._id === selectedCardId);
 
-  if (!selectedCard) {
-    return <div className='SideImageContainer'>Loading.....</div>;
-  }
-
-
-  console.log(selectedCard.img);
+  
   return (
     <div>
-      <div className='SideImageContainer' key={selectedCard.id}>
-      <div className="card-image">
-      <img src= {selectedCard.img}/></div>
+      <div className='SideImageContainer' key={selectedCard._id}>
+      <div className="side-image">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png" alt="Side"/>
+      </div>
         </div>
       </div>
   
