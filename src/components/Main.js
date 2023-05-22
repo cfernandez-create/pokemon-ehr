@@ -77,6 +77,8 @@ export default function Main() {
       return item;
     });
     setAdmitData(updatedAdmitData);
+    window.alert(`We've healed your Pokémon back to perfect health!`).reload();
+    window.location.reload(true);
   };
   const handleUpdateError = (error) => {
     console.error('An error occurred while updating HP:', error);
@@ -98,6 +100,8 @@ export default function Main() {
       return item;
     });
     setAdmitData(updatedStatusAdmitData);
+    window.alert(`Your Pokemon is fighting fit!`).reload();
+    window.location.reload(true);
   };
   const handleUpdateStatusError = (error) => {
     console.error('An error occurred while updating the status:', error);

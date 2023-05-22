@@ -1,30 +1,10 @@
 import React, { useEffect, useState } from "react";
 import pokemonOptions from "./pokemonOptions";
 import CustomSelect from "react-select";
-import { Stack, Button, Autocomplete, TextField } from "@mui/material/";
+import { Stack, Button } from "@mui/material/";
 import Axios from "axios";
 import { baseURL } from "../utils/constant";
-import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-    fontWeight: 400,
-    fontSize: "1rem",
-    lineHeight: "1.4375em",
-    letterSpacing: "0.00938em",
-    color: "rgba(0, 0, 0, 0.87)",
-    boxSizing: "border-box",
-    position: "relative",
-    cursor: "text",
-    display: "inline-flex",
-    alignItems: "center",
-    width: "180%",
-    borderRadius: "4px",
-    paddingRight: "14px",
-    padding: "1px",
-  },
-}));
 
 const statusOptions = [
   { value: "fainted", label: "Fainted" },
@@ -40,7 +20,7 @@ const colourStyles = {
   control: (styles) => ({
     ...styles,
     backgroundColor: "white",
-    width: "150px",
+    width: "180px",
     maxHeight: "100px",
     overflowY: "auto",
     cursor: "pointer",
@@ -48,7 +28,7 @@ const colourStyles = {
   option: (styles, { data }) => ({
     ...styles,
     color: data.color,
-    width: "150px",
+    width: "180px",
     maxHeight: "200px",
     overflowY: "auto",
     cursor: "pointer",
@@ -60,7 +40,7 @@ const colourStyles = {
   }),
   menu: (styles) => ({
     ...styles,
-    width: "150px",
+    width: "180px",
     maxHeight: "100px",
     overflowY: "auto",
     pointerEvents: "auto",
@@ -71,7 +51,6 @@ export default function Admit(props) {
   const { handleClosePopup } = props;
   const [species, setSpecies] = useState("");
   const [status, setStatus] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState([]);
   const [name, setName] = useState("");
   const [level, setLevel] = useState(0);
   const [trainer, setTrainer] = useState("");
@@ -80,7 +59,6 @@ export default function Admit(props) {
   const [types, setTypes] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
-  const [matchedOption, setMatchedOption] = useState(null);
   const [number, setNumber] = useState(0);
   const [img, setImg] = useState("");
 
@@ -94,44 +72,23 @@ export default function Admit(props) {
     handleClosePopup();
   };
 
-  const handleSpeciesChange = (event) => {
-    const { value } = event.target;
-    const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-    setSpecies(capitalizedValue);
-
-    const matched = pokemonOptions.find((pokemon) =>
-      pokemon.label.includes(value)
-    );
-
-    if (matched) {
-      setMatchedOption(matched);
-      setTypes(matched.types);
-      setHeight(matched.height);
-      setWeight(matched.weight);
-      setNumber(matched.number);
+  const handleSpeciesChange = (selectedOption) => {
+    if (selectedOption) {
+      setSpecies(selectedOption.label);
+      setTypes(selectedOption.types);
+      setHeight(selectedOption.height);
+      setWeight(selectedOption.weight);
+      setNumber(selectedOption.number);
       setImg(
-        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${matched.number}.png`
+        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${selectedOption.number}.png`
       );
     } else {
-      setMatchedOption(null);
-      setTypes("AS");
+      setSpecies("");
+      setTypes("");
       setHeight("");
       setWeight("");
       setNumber(0);
       setImg("");
-    }
-  };
-
-  const handleAutofill = () => {
-    if (matchedOption) {
-      setSpecies(matchedOption.label);
-      setTypes(matchedOption.types);
-      setHeight(matchedOption.height);
-      setWeight(matchedOption.weight);
-      setNumber(matchedOption.number);
-      setImg(
-        `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${matchedOption.number}.png`
-      );
     }
   };
 
@@ -206,32 +163,16 @@ export default function Admit(props) {
           />
         </div>
 
-        {/* <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={pokemonOptions}
-          value={pokemonOptions.label}
-          onChange={handleSpeciesChange}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Species" />}
-        /> */}
-
         <div>
-          <div className="admit-label" id="admit-species">
+        <div className="admit-label" id="admit-species">
             <label>Species: </label>
-            <input
-              type="text"
-              value={species}
+            <CustomSelect
+              options={pokemonOptions}
+              styles={colourStyles}
+              value={pokemonOptions.find((option) => option.label === species)}
               onChange={handleSpeciesChange}
-              onFocus={handleAutofill}
               placeholder="Search species..."
             />
-          </div>
-
-          <div className="suggestions">
-            {filteredOptions.map((pokemon) => (
-              <div key={pokemon.value}>{pokemon.label}</div>
-            ))}
           </div>
         </div> 
 

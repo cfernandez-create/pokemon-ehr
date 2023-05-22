@@ -40,9 +40,17 @@ function TopNav(props) {
         {SideNavData.map((val, key) => (
           <li
             key={key}
-            className={val.title === 'ADMIT' ? 'row admit-item' 
-            : val.title === 'DISCHARGE' ? 'row discharge-item' 
-            : 'row'}>
+            className={
+              val.title === 'ADMIT'
+                ? 'row admit-item'
+                : val.title === 'DISCHARGE'
+                ? 'row discharge-item'
+                : val.title === 'DOCUMENT'
+                ? 'row document-item'
+                : val.title === 'HISTORY'
+                ? 'row history-item'
+                : 'row'
+            }>
             <div onClick={()=> handleIconClick(val.title)}>{val.icon}</div>
           </li>
         ))}

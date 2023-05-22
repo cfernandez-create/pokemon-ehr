@@ -295,11 +295,11 @@ body {
 }
 
 .side-nav-list .row.discharge-item {
-  background-color: #b8b8b8;
+  background-color: #c45757;
 }
 
 .side-nav-list .row.discharge-item:hover {
-  background-color: #797979;
+  background-color: #8a5656;
 }
 
 .SideImageContainer {
@@ -619,15 +619,32 @@ body {
   }
 
   .top-nav-list .row.admit-item:hover {
-    background: linear-gradient(45deg, #4d8a65, #80e2a9);
+    background: linear-gradient(45deg, #0f552c, #89fab6);
   }
 
   .top-nav-list .row.discharge-item {
-    background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
+    background: linear-gradient(45deg, #eb5454, #792222);
   }
 
   .top-nav-list .row.discharge-item:hover {
-    background: linear-gradient(45deg, #525151, #999898);
+    background: linear-gradient(45deg, #792222, #eb5454);
+  }
+
+  .top-nav-list .row.history-item {
+    background: linear-gradient(45deg, #bbbbbb, #363636);
+  }
+
+  .top-nav-list .row.history-item:hover {
+    background: linear-gradient(45deg, #363636, #bbbbbb);
+  }
+
+  
+  .top-nav-list .row.document-item {
+    background: linear-gradient(45deg, #bbbbbb, #363636);
+  }
+
+  .top-nav-list .row.document-item:hover {
+    background: linear-gradient(45deg, #363636, #bbbbbb);
   }
 
   .SideImageContainer {
@@ -843,15 +860,32 @@ body {
   }
 
   .top-nav-list .row.admit-item:hover {
-    background: linear-gradient(45deg, #4d8a65, #80e2a9);
+    background: linear-gradient(45deg, #0f552c, #89fab6);
   }
 
   .top-nav-list .row.discharge-item {
-    background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
+    background: linear-gradient(45deg, #eb5454, #792222);
   }
 
   .top-nav-list .row.discharge-item:hover {
-    background: linear-gradient(45deg, #525151, #999898);
+    background: linear-gradient(45deg, #792222, #eb5454);
+  }
+
+  .top-nav-list .row.history-item {
+    background: linear-gradient(45deg, #bbbbbb, #363636);
+  }
+
+  .top-nav-list .row.history-item:hover {
+    background: linear-gradient(45deg, #363636, #bbbbbb);
+  }
+
+  
+  .top-nav-list .row.document-item {
+    background: linear-gradient(45deg, #bbbbbb, #363636);
+  }
+
+  .top-nav-list .row.document-item:hover {
+    background: linear-gradient(45deg, #363636, #bbbbbb);
   }
 
   .SideImageContainer {
