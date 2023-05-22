@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import pokemonOptions from "./pokemonOptions";
 import CustomSelect from "react-select";
-import Select from "react-select";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import { Stack, Button, Autocomplete, TextField } from "@mui/material/";
 import Axios from "axios";
 import { baseURL } from "../utils/constant";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,22 +10,21 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: "Roboto, Helvetica, Arial, sans-serif",
     fontWeight: 400,
-    fontSize: '1rem',
-    lineHeight: '1.4375em',
-    letterSpacing: '0.00938em',
-    color: 'rgba(0, 0, 0, 0.87)',
-    boxSizing: 'border-box',
-    position: 'relative',
-    cursor: 'text',
-    display: 'inline-flex',
-    alignItems: 'center',
-    width: '180%',
-    borderRadius: '4px',
-    paddingRight: '14px',
-    padding: '1px'
+    fontSize: "1rem",
+    lineHeight: "1.4375em",
+    letterSpacing: "0.00938em",
+    color: "rgba(0, 0, 0, 0.87)",
+    boxSizing: "border-box",
+    position: "relative",
+    cursor: "text",
+    display: "inline-flex",
+    alignItems: "center",
+    width: "180%",
+    borderRadius: "4px",
+    paddingRight: "14px",
+    padding: "1px",
   },
 }));
-
 
 const statusOptions = [
   { value: "fainted", label: "Fainted" },
@@ -39,8 +36,6 @@ const statusOptions = [
   { value: "paralyzed", label: "Paralyzed" },
 ];
 
-
-
 const colourStyles = {
   control: (styles) => ({
     ...styles,
@@ -48,7 +43,7 @@ const colourStyles = {
     width: "150px",
     maxHeight: "100px",
     overflowY: "auto",
-    cursor: "pointer"
+    cursor: "pointer",
   }),
   option: (styles, { data }) => ({
     ...styles,
@@ -56,7 +51,7 @@ const colourStyles = {
     width: "150px",
     maxHeight: "200px",
     overflowY: "auto",
-    cursor: "pointer"
+    cursor: "pointer",
   }),
   singleValue: (styles, { data }) => ({
     ...styles,
@@ -72,9 +67,7 @@ const colourStyles = {
   }),
 };
 
-
 export default function Admit(props) {
-  const classes = useStyles();
   const { handleClosePopup } = props;
   const [species, setSpecies] = useState("");
   const [status, setStatus] = useState("");
@@ -90,7 +83,6 @@ export default function Admit(props) {
   const [matchedOption, setMatchedOption] = useState(null);
   const [number, setNumber] = useState(0);
   const [img, setImg] = useState("");
-  
 
   function getRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
@@ -108,10 +100,9 @@ export default function Admit(props) {
     setSpecies(capitalizedValue);
 
     const matched = pokemonOptions.find((pokemon) =>
-      pokemon.label.toLowerCase().includes(value.toLowerCase())
+      pokemon.label.includes(value)
     );
 
- 
     if (matched) {
       setMatchedOption(matched);
       setTypes(matched.types);
@@ -147,7 +138,6 @@ export default function Admit(props) {
   const handleStatusChange = (selectedOption) => {
     setStatus(selectedOption.label);
   };
-
 
   const addPokemon = () => {
     const pokemonData = {
@@ -185,99 +175,102 @@ export default function Admit(props) {
 
   useEffect(() => {
     setIncrementingNumber(
-      (prevIncrementingNumber) => prevIncrementingNumber + 1
+      (prevIncrementingNumber) => prevIncrementingNumber + 4
     );
   }, []);
 
   return (
     <div>
-      
-          <div className="admit-container">
-            <div className="admit-label" id="admit-name">
-              <label>Name: </label>
-              <input
-                type="text"
-                placeholder="Enter Pokemon's name"
-                onChange={(event) => {
-                  setName(event.target.value);
-                }}
-              />
-            </div>
+      <div className="admit-container">
+        <div className="admit-label" id="admit-name">
+          <label>Name: </label>
+          <input
+            type="text"
+            placeholder="Enter Pokemon's name"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
 
-            <div className="admit-label" id="admit-lvl">
-              <label>Lvl: </label>
-              <input
-                type="number"
-                min="1"
-                max="100"
-                placeholder="1-100"
-                onChange={(event) => {
-                  setLevel(event.target.value);
-                }}
-              />
-            </div>
+        <div className="admit-label" id="admit-lvl">
+          <label>Lvl: </label>
+          <input
+            type="number"
+            min="1"
+            max="100"
+            placeholder="1-100"
+            onChange={(event) => {
+              setLevel(event.target.value);
+            }}
+          />
+        </div>
 
-            <div>
-            <div className='admit-spieces'>
-      <label>Species: </label>
-      <input
-        type="text"
-        value={species}
-        onChange={handleSpeciesChange}
-        onFocus={handleAutofill}
-        placeholder="Search species..."
-      /></div>
+        {/* <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={pokemonOptions}
+          value={pokemonOptions.label}
+          onChange={handleSpeciesChange}
+          sx={{ width: 300 }}
+          renderInput={(params) => <TextField {...params} label="Species" />}
+        /> */}
 
-      <div className="suggestions">
-        {filteredOptions.map((pokemon) => (
-          <div key={pokemon.value}>{pokemon.label}</div>
-        ))}
-      </div>
-    
-    </div>
-          
-           
-            <div className="admit-label" id="admit-trainer">
-              <label>Trainer Name: </label>
-              <input
-                type="text"
-                placeholder="Trainer Name"
-                onChange={(event) => {
-                  setTrainer(event.target.value);
-                }}
-              />
-            </div>
-
-            <div className="admit-status">
-              <label>Status: </label>
-              <CustomSelect
-                options={statusOptions}
-                styles={colourStyles}
-                value={statusOptions.find((option) => option.value === status)}
-                onChange={handleStatusChange}
-              />
-            </div>
-
-            <div className="admit-buttons">
-              <Stack direction="row" spacing={2}>
-                <Button
-                  variant="contained"
-                  color="success"
-                  onClick={addPokemon}
-                >
-                  SUBMIT
-                </Button>
-                <Button
-                  variant="outlined"
-                  color="error"
-                  onClick={handleCancelButtonClick}
-                >
-                  CLOSE
-                </Button>
-              </Stack>
-            </div>
+        <div>
+          <div className="admit-label" id="admit-species">
+            <label>Species: </label>
+            <input
+              type="text"
+              value={species}
+              onChange={handleSpeciesChange}
+              onFocus={handleAutofill}
+              placeholder="Search species..."
+            />
           </div>
-     
+
+          <div className="suggestions">
+            {filteredOptions.map((pokemon) => (
+              <div key={pokemon.value}>{pokemon.label}</div>
+            ))}
+          </div>
+        </div> 
+
+        <div className="admit-label" id="admit-trainer">
+          <label>Trainer Name: </label>
+          <input
+            type="text"
+            placeholder="Trainer Name"
+            onChange={(event) => {
+              setTrainer(event.target.value);
+            }}
+          />
+        </div>
+
+        <div className="admit-status">
+          <label>Status: </label>
+          <CustomSelect
+            options={statusOptions}
+            styles={colourStyles}
+            value={statusOptions.find((option) => option.value === status)}
+            onChange={handleStatusChange}
+          />
+        </div>
+
+        <div className="admit-buttons">
+          <Stack direction="row" spacing={2}>
+            <Button variant="contained" color="success" onClick={addPokemon}>
+              SUBMIT
+            </Button>
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={handleCancelButtonClick}
+            >
+              CLOSE
+            </Button>
+          </Stack>
+        </div>
+      </div>
     </div>
   );
 }

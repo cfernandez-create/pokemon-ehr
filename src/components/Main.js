@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Pokecard from './Pokecard'
+import Pokecard from './Pokecard';
 import Header from './Header';
 import SideImage from './SideImage';
 import TopNav from './TopNav';
@@ -12,35 +12,95 @@ export default function Main() {
   const [admitData, setAdmitData] = useState([]);
   const [selectedCardId, setSelectedCardId] = useState(null);
   const [selectedCardData, setSelectedCardData] = useState(null);
- 
-  
+
   useEffect(() => {
-   axios.get(`${baseURL}/get`).then((res) => {
-    console.log(res.data);
-    setAdmitData(res.data)
-   });
+    axios.get(`${baseURL}/get`).then((res) => {
+      console.log(res.data);
+      setAdmitData(res.data);
+    });
   }, []);
 
   const deleteAdmit = (_id) => {
-    return axios.delete(`${baseURL}/delete/${_id}`).then((res)=> {
+    return axios.delete(`${baseURL}/delete/${_id}`).then((res) => {
       console.log(res);
-      return res.data; 
+      return res.data;
     });
-  }
-
-
-  const handleDeleteAdmitData = (_id) => {
-    deleteAdmit(_id).then(handleDeleteSuccess)
-    .catch(handleDeleteError);
   };
-
+  const handleDeleteAdmitData = (_id) => {
+    deleteAdmit(_id)
+      .then(handleDeleteSuccess)
+      .catch(handleDeleteError);
+  };
   const handleDeleteSuccess = (data) => {
     console.log('Record deleted:', data);
-    window.location.reload()
+    window.location.reload();
   };
-
   const handleDeleteError = (error) => {
     console.error('An error occurred while deleting:', error);
+  };
+
+  const updateAdmitHP = async (_id, newHP) => {
+    try {
+      const response = await axios.patch(`${baseURL}/update/${_id}`, { hp: newHP });
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      console.error('An error occurred while updating HP:', error);
+      throw error;
+    }
+  };
+  
+  const updateAdmitStatus = async (_id, newStatus) => {
+    try {
+      const response = await axios.patch(`${baseURL}/update/${_id}`, { status: newStatus });
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      console.error('An error occurred while updating the status:', error);
+      throw error;
+    }
+  };
+
+  const handleUpdateData = (_id) => {
+    const newHP = 100;
+    updateAdmitHP(_id, newHP)
+      .then(handleUpdateSuccess)
+      .catch(handleUpdateError);
+  };
+
+  const handleUpdateSuccess = (data) => {
+    console.log('HP updated:', data);
+    const updatedAdmitData = admitData.map((item) => {
+      if (item._id === data._id) {
+        return { ...item, hp: data.hp };
+      }
+      return item;
+    });
+    setAdmitData(updatedAdmitData);
+  };
+  const handleUpdateError = (error) => {
+    console.error('An error occurred while updating HP:', error);
+  };
+
+
+  const handleUpdateStatus = (_id) => {
+    const newStatus = '';
+    updateAdmitStatus(_id, newStatus)
+      .then(handleUpdateStatusSuccess)
+      .catch(handleUpdateStatusError);
+  };
+  const handleUpdateStatusSuccess = (data) => {
+    console.log('Status updated:', data);
+    const updatedStatusAdmitData = admitData.map((item) => {
+      if (item._id === data._id) {
+        return { ...item, status: data.status };
+      }
+      return item;
+    });
+    setAdmitData(updatedStatusAdmitData);
+  };
+  const handleUpdateStatusError = (error) => {
+    console.error('An error occurred while updating the status:', error);
   };
 
   const handleOpenPopup = () => {
@@ -63,7 +123,13 @@ export default function Main() {
 
   return (
     <div className="Main">
-      <TopNav handleOpenPopup={handleOpenPopup} handleDeleteAdmitData={handleDeleteAdmitData} selectedCardId={selectedCardId}/>
+      <TopNav
+        handleOpenPopup={handleOpenPopup}
+        handleUpdateData={handleUpdateData}
+        handleUpdateStatus={handleUpdateStatus}
+        handleDeleteAdmitData={handleDeleteAdmitData}
+        selectedCardId={selectedCardId}
+      />
       <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} handleClosePopup={handleClosePopup} />
       <div className="main-container">
         <div className="main-top-bar">

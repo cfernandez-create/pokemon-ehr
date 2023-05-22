@@ -888,7 +888,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -901,7 +901,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -914,7 +914,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -927,7 +927,7 @@ body {
     top: 43px;
     font-family: "Lato";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 0.8rem;
     line-height: 2px;
   }
@@ -976,6 +976,7 @@ body {
     font-size: 0.78rem;
     font-family: "Lato";
     font-style: normal;
+    font-weight: 600;
     width: 120px;
     z-index: 1;
   }
@@ -1038,7 +1039,6 @@ body {
     justify-content: left;
     display: flex;
   }
-
 
 
   .admit-container {

@@ -1,6 +1,6 @@
 import React from 'react'
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import ScienceRoundedIcon from '@mui/icons-material/ScienceRounded';
+import CookieRoundedIcon from '@mui/icons-material/CookieRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import AssignmentTurnedInRoundedIcon from '@mui/icons-material/AssignmentTurnedInRounded';
@@ -8,14 +8,14 @@ import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
 
 export const SideNavData = [
 {
-    title: "STATUS BAR",
+    title: "MAX POTION",
     icon: <FavoriteRoundedIcon />,
     link:  '#',
 },
 
 {
-    title: "TREATMENT",
-    icon: <ScienceRoundedIcon />,
+    title: "HEAL STATUS",
+    icon: <CookieRoundedIcon />,
     link:  "#",
 },
 
