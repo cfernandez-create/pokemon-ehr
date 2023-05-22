@@ -14,9 +14,6 @@ export default function Main() {
   const [selectedCardData, setSelectedCardData] = useState(null);
  
   
-
-
-
   useEffect(() => {
    axios.get(`${baseURL}/get`).then((res) => {
     console.log(res.data);

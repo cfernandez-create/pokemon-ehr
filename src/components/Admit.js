@@ -1,11 +1,33 @@
 import React, { useEffect, useState } from "react";
 import pokemonOptions from "./pokemonOptions";
-import "../Admit.css";
 import CustomSelect from "react-select";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
+import { Stack, Button, Alert } from "@mui/material/";
 import Axios from "axios";
 import { baseURL } from "../utils/constant";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+    fontWeight: 400,
+    fontSize: '1rem',
+    lineHeight: '1.4375em',
+    letterSpacing: '0.00938em',
+    color: 'rgba(0, 0, 0, 0.87)',
+    boxSizing: 'border-box',
+    position: 'relative',
+    cursor: 'text',
+    display: 'inline-flex',
+    alignItems: 'center',
+    width: '180%',
+    borderRadius: '4px',
+    paddingRight: '14px',
+    padding: '1px'
+  },
+}));
+
 
 const statusOptions = [
   { value: "fainted", label: "Fainted" },
@@ -17,20 +39,24 @@ const statusOptions = [
   { value: "paralyzed", label: "Paralyzed" },
 ];
 
+
+
 const colourStyles = {
   control: (styles) => ({
     ...styles,
     backgroundColor: "white",
-    width: "130px",
+    width: "150px",
     maxHeight: "100px",
     overflowY: "auto",
+    cursor: "pointer"
   }),
   option: (styles, { data }) => ({
     ...styles,
     color: data.color,
-    width: "110px",
+    width: "150px",
     maxHeight: "200px",
     overflowY: "auto",
+    cursor: "pointer"
   }),
   singleValue: (styles, { data }) => ({
     ...styles,
@@ -39,14 +65,16 @@ const colourStyles = {
   }),
   menu: (styles) => ({
     ...styles,
-    width: "50%",
+    width: "150px",
     maxHeight: "100px",
     overflowY: "auto",
     pointerEvents: "auto",
   }),
 };
 
+
 export default function Admit(props) {
+  const classes = useStyles();
   const { handleClosePopup } = props;
   const [species, setSpecies] = useState("");
   const [status, setStatus] = useState("");
@@ -62,7 +90,7 @@ export default function Admit(props) {
   const [matchedOption, setMatchedOption] = useState(null);
   const [number, setNumber] = useState(0);
   const [img, setImg] = useState("");
-  const [isAdmitContainerVisible, setAdmitContainerVisible] = useState(true);
+  
 
   function getRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
@@ -83,6 +111,7 @@ export default function Admit(props) {
       pokemon.label.toLowerCase().includes(value.toLowerCase())
     );
 
+ 
     if (matched) {
       setMatchedOption(matched);
       setTypes(matched.types);
@@ -119,9 +148,6 @@ export default function Admit(props) {
     setStatus(selectedOption.label);
   };
 
-  const hideAdmitContainer = () => {
-    setAdmitContainerVisible(false);
-  };
 
   const addPokemon = () => {
     const pokemonData = {
@@ -143,7 +169,8 @@ export default function Admit(props) {
     Axios.post(`${baseURL}/save`, { admits: pokemonData })
       .then(() => {
         console.log("Success!");
-        window.location.reload()
+        window.location.reload();
+        window.location.Alert();
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -165,22 +192,20 @@ export default function Admit(props) {
 
   return (
     <div>
-      {isAdmitContainerVisible && (
-        <div
-          className={`Admit ${isAdmitContainerVisible ? "visible" : "hidden"}`}
-        >
+      
           <div className="admit-container">
-            <div className="admit-name">
+            <div className="admit-label" id="admit-name">
               <label>Name: </label>
               <input
                 type="text"
+                placeholder="Enter Pokemon's name"
                 onChange={(event) => {
                   setName(event.target.value);
                 }}
               />
             </div>
 
-            <div className="admit-lvl">
+            <div className="admit-label" id="admit-lvl">
               <label>Lvl: </label>
               <input
                 type="number"
@@ -193,27 +218,37 @@ export default function Admit(props) {
               />
             </div>
 
-            <div className="admit-spieces">
-              <label>Species: </label>
-              <input
-                type="text"
-                value={species}
-                onChange={handleSpeciesChange}
-                onFocus={handleAutofill}
-                placeholder="Search species..."
-              />
-            </div>
-
-            <div className="suggestions">
-              {filteredOptions.map((pokemon) => (
-                <div key={pokemon.value}>{pokemon.label}</div>
-              ))}
-            </div>
-
-            <div className="admit-trainer">
+            <div>
+      <Stack direction="column" alignItems="left" spacing={1} width={90}>
+        <label>Species: </label>
+        <Autocomplete
+        className={classes.root}
+          options={pokemonOptions}
+          getOptionLabel={(option) => option.label}
+          value={pokemonOptions.find((option) => option.label === species) || null}
+          onChange={(event, newValue) => {
+            setSpecies(newValue ? newValue.label : '');
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              value={species}
+              onChange={handleSpeciesChange}
+              onFocus={handleAutofill}
+              placeholder="Search species..."
+            />
+          )}
+        />
+      </Stack>
+    
+    </div>
+          
+           
+            <div className="admit-label" id="admit-trainer">
               <label>Trainer Name: </label>
               <input
                 type="text"
+                placeholder="Trainer Name"
                 onChange={(event) => {
                   setTrainer(event.target.value);
                 }}
@@ -249,8 +284,7 @@ export default function Admit(props) {
               </Stack>
             </div>
           </div>
-        </div>
-      )}
+     
     </div>
   );
 }

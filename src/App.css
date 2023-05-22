@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lato:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Lato:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -24,7 +24,7 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background: #C16D6D;
+  background: #c16d6d;
   background: linear-gradient(45deg, #cc7777, #eb2f2f);
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
   border-radius: 0px;
@@ -38,7 +38,7 @@ body {
 }
 
 .name-header {
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -47,13 +47,12 @@ body {
   padding-left: 10px;
 }
 
-
 .lvl-header {
   width: 115px;
   height: 22px;
   left: 12px;
   top: 13px;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -66,7 +65,7 @@ body {
   height: 74px;
   left: 12px;
   top: 43px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -79,10 +78,10 @@ body {
   height: 74px;
   left: 12px;
   top: 43px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
-  font-size: .8rem;
+  font-size: 0.8rem;
   line-height: 2px;
 }
 
@@ -92,7 +91,7 @@ body {
   height: 74px;
   left: 252px;
   top: 43px;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -144,7 +143,7 @@ body {
   height: 25px;
   left: 55px;
   top: -10px;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
@@ -157,7 +156,7 @@ body {
   height: 25px;
   left: 50%;
   top: -10px;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
@@ -170,7 +169,7 @@ body {
   height: 25px;
   left: 75%;
   top: -10px;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
@@ -201,7 +200,7 @@ body {
   margin-top: -115px;
   margin-left: 10%;
   font-size: 0.78rem;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   width: 120px;
   z-index: 1;
@@ -210,7 +209,7 @@ body {
 .card-hp {
   margin-top: -119px;
   margin-left: 50%;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   width: 90px;
   z-index: 2;
@@ -224,7 +223,7 @@ body {
   margin-top: -70px;
   margin-left: 75%;
   font-size: 0.8rem;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-style: normal;
   width: 90px;
   z-index: 2;
@@ -246,7 +245,6 @@ body {
   background-color: #808080;
 }
 
-
 .side-nav-container {
   position: fixed;
   width: 304px;
@@ -261,18 +259,17 @@ body {
   width: auto;
   padding-bottom: 200px;
   margin-top: -41%;
-
 }
 
 .side-nav-list .row {
   width: 100%;
   height: auto;
-  background-color: #2D8FA5;
+  background-color: #2d8fa5;
   border: 1px solid black;
   display: flex;
   padding: 10px;
   border-radius: 0 10px 10px 0;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   list-style-type: none;
   padding-left: 10px;
 }
@@ -285,12 +282,12 @@ body {
   display: flex;
   padding: 10px;
   border-radius: 0 10px 10px 0;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
   list-style-type: none;
 }
 
 .side-nav-list .row.admit-item {
-  background-color: #6DC18F;
+  background-color: #6dc18f;
 }
 
 .side-nav-list .row.admit-item:hover {
@@ -298,13 +295,12 @@ body {
 }
 
 .side-nav-list .row.discharge-item {
-  background-color: #B8B8B8;
+  background-color: #b8b8b8;
 }
 
 .side-nav-list .row.discharge-item:hover {
   background-color: #797979;
 }
-
 
 .SideImageContainer {
   position: fixed;
@@ -336,12 +332,8 @@ body {
   display: none;
 }
 
-
-
 @media screen and (max-width: 1024px) {
-  
-
-  .header-container{
+  .header-container {
     width: 100vw;
     display: flex;
   }
@@ -354,7 +346,7 @@ body {
     top: 15%;
     left: 50%;
     z-index: 1;
-    overflow-y:auto;
+    overflow-y: auto;
     flex: 1;
     border: 1px solid;
   }
@@ -370,43 +362,39 @@ body {
     justify-content: space-between;
   }
 
-
   .main-name {
     position: absolute;
     width: 30%;
     height: 25px;
     left: 55px;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
-    
   }
 
-  .main-hp-text
-  {
+  .main-hp-text {
     position: absolute;
-    width:30%;
+    width: 30%;
     height: 25px;
     left: 50%;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
   }
 
-  .main-status-text
-  {
+  .main-status-text {
     position: absolute;
     width: 65px;
     height: 25px;
     left: 75%;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
@@ -427,23 +415,21 @@ body {
     line-height: 2px;
   } */
 
-
-  .pokemon-container{
+  .pokemon-container {
     width: 50vw;
     margin-top: -1px;
     background-color: #808080;
     flex: 1;
     height: 150vh;
     overflow-y: scroll;
-    
   }
 
-  .card-image{
+  .card-image {
     height: 115px;
     margin-top: 60px;
     margin-left: -4%;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 50px;
     z-index: 1;
@@ -452,117 +438,111 @@ body {
     padding-right: 55px;
   }
 
-  .card-name{
+  .card-name {
     height: 115px;
     margin-top: -115px;
     margin-left: 10%;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 120px;
     z-index: 1;
   }
 
-  .card-hp
-  {
+  .card-hp {
     margin-top: -119px;
     margin-left: 50%;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
   }
 
-  .card-status
-  {
+  .card-status {
     height: 115px;
     margin-top: -70px;
     margin-left: 75%;
     font-size: 0.8rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
     font-weight: bold;
     border-radius: 50px;
   }
 
-  .burnStatus{
+  .burnStatus {
     border-radius: 5px;
     justify-content: center;
     align-self: center;
     font-size: 0.7rem;
   }
 
-  .card{
+  .card {
     background-color: #808080;
   }
 
-  .side-nav-container
-{
-  position: fixed;
-  width: 304px;
-  height: 100vh;
-  margin-top: 45%;
-}
+  .side-nav-container {
+    position: fixed;
+    width: 304px;
+    height: 100vh;
+    margin-top: 45%;
+  }
 
-.side-nav-list
-{
-  height: auto;
-  padding: 0;
-  width: 100%;
-}
+  .side-nav-list {
+    height: auto;
+    padding: 0;
+    width: 100%;
+  }
 
-.side-nav-list .row 
-{
-width: 100%;
-height: 50px;
-background-color: #2D8FA5;
-border: 1px solid black;
-display: flex;
-padding: 10px;
-border-radius: 0 10px 10px 0;
-font-family: 'Roboto Condensed';
-list-style-type: none;
-padding-left: 10px;
-}
+  .side-nav-list .row {
+    width: 100%;
+    height: 50px;
+    background-color: #2d8fa5;
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    font-family: "Roboto Condensed";
+    list-style-type: none;
+    padding-left: 10px;
+  }
 
-.side-nav-list .row:hover 
-{
-width: 100%;
-height: 50px;
-background-color: #2d8fa586;
-border: 1px solid black;
-display: flex;
-padding: 10px;
-border-radius: 0 10px 10px 0;
-font-family: 'Roboto Condensed';
-list-style-type: none;
-}
+  .side-nav-list .row:hover {
+    width: 100%;
+    height: 50px;
+    background-color: #2d8fa586;
+    border: 1px solid black;
+    display: flex;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    font-family: "Roboto Condensed";
+    list-style-type: none;
+  }
 
-.side-nav-list .row.admit-item {
-  background-color: #6DC18F;
-}
+  .side-nav-list .row.admit-item {
+    background-color: #6dc18f;
+  }
 
-.side-nav-list .row.admit-item:hover {
-  background-color: #589b73e5;
-}
+  .side-nav-list .row.admit-item:hover {
+    background-color: #589b73e5;
+  }
 
-.side-nav-list .row.discharge-item {
-  background-color: #B8B8B8;
-}
+  .side-nav-list .row.discharge-item {
+    background-color: #b8b8b8;
+  }
 
-.side-nav-list .row.discharge-item:hover {
-  background-color: #797979;
-}
+  .side-nav-list .row.discharge-item:hover {
+    background-color: #797979;
+  }
 
-/* .SideImageContainer{
+  /* .SideImageContainer{
   position: fixed;
   border: solid;
   height: 346px;
@@ -575,29 +555,26 @@ list-style-type: none;
   align-items: center;
 } */
 
-/* .pokemon-sprite{
+  /* .pokemon-sprite{
   width: 400px;
   height: 400px;
   padding-right: 90px;
   padding-bottom: 60px;
 } */
-
 }
 
-
 @media screen and (max-width: 810px) {
-  .side-nav-container{
+  .side-nav-container {
     display: none;
   }
 
-  .header-container{
+  .header-container {
     width: 100vw;
     display: flex;
   }
 
   .top-nav-container {
-    display:block;
-    /* background-color: #2D8FA5; */
+    display: block;
     position: fixed;
     width: 100vw;
     height: 50px;
@@ -605,7 +582,7 @@ list-style-type: none;
     border-radius: 10px;
     justify-content: space-between;
   }
-  
+
   .top-nav-list {
     height: auto;
     padding: 0;
@@ -616,49 +593,44 @@ list-style-type: none;
     justify-content: left;
     align-items: right;
   }
-  
+
   .top-nav-list .row {
     width: 90%;
     height: 50px;
-    background-color: #2D8FA5;
+    background-color: #2d8fa5;
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     background: linear-gradient(45deg, #3cc2e0, #257688);
     display: flex;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     list-style-type: none;
     padding: 10px;
     justify-content: center;
   }
 
-.top-nav-list .row:hover 
-{
-  
-  background: linear-gradient(45deg, #25778a, #37adc7);
+  .top-nav-list .row:hover {
+    background: linear-gradient(45deg, #25778a, #37adc7);
+  }
 
- 
-}
+  .top-nav-list .row.admit-item {
+    background: linear-gradient(45deg, #89fab6, #0f552c);
+  }
 
-.top-nav-list .row.admit-item {
- 
-  background: linear-gradient(45deg, #89fab6, #0f552c);
-}
+  .top-nav-list .row.admit-item:hover {
+    background: linear-gradient(45deg, #4d8a65, #80e2a9);
+  }
 
-.top-nav-list .row.admit-item:hover {
-  background: linear-gradient(45deg, #4d8a65, #80e2a9);
-}
+  .top-nav-list .row.discharge-item {
+    background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
+  }
 
-.top-nav-list .row.discharge-item {
-  background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
-}
+  .top-nav-list .row.discharge-item:hover {
+    background: linear-gradient(45deg, #525151, #999898);
+  }
 
-.top-nav-list .row.discharge-item:hover {
-  background: linear-gradient(45deg, #525151, #999898);
-}
-
-  .SideImageContainer{
+  .SideImageContainer {
     display: none;
   }
 
@@ -672,7 +644,7 @@ list-style-type: none;
     top: 170px;
     left: 0%;
     z-index: 1;
-    overflow:auto;
+    overflow: auto;
   }
   .main-top-bar {
     background: linear-gradient(45deg, #cc7777, #eb2f2f);
@@ -687,65 +659,59 @@ list-style-type: none;
     top: 15.7%;
   }
 
-
   .main-name {
     position: absolute;
     width: 30%;
     height: 25px;
     left: 55px;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
-    
   }
 
-  .main-hp-text
-  {
+  .main-hp-text {
     position: absolute;
-    width:30%;
+    width: 30%;
     height: 25px;
     left: 50%;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
   }
 
-  .main-status-text
-  {
+  .main-status-text {
     position: absolute;
     width: 65px;
     height: 25px;
     left: 75%;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
   }
 
-  .small-text-main
-  {
+  .small-text-main {
     position: absolute;
     width: 281px;
     height: 74px;
     left: 70px;
     top: 43px;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 400;
-    font-size: .8rem;
+    font-size: 0.8rem;
     line-height: 2px;
   }
 
-
-  .pokemon-container{
+  .pokemon-container {
     position: absolute;
     width: 100%;
     margin-top: -1px;
@@ -755,12 +721,12 @@ list-style-type: none;
     overflow-y: auto;
   }
 
-  .card-image{
+  .card-image {
     height: 115px;
     margin-top: 60px;
     margin-left: -3%;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 50px;
     z-index: 1;
@@ -769,75 +735,70 @@ list-style-type: none;
     padding-right: 55px;
   }
 
-  .card-name{
+  .card-name {
     position: absolute;
     height: 115px;
     margin-top: -115px;
     margin-left: 10%;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 120px;
     z-index: 1;
   }
 
-  .card-hp
-  {
-    
+  .card-hp {
     margin-top: -119px;
     margin-left: 50%;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
   }
 
-  .card-status
-  {
+  .card-status {
     height: 115px;
     margin-top: -70px;
     margin-left: 75%;
     font-size: 0.8rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
     font-weight: bold;
     border-radius: 50px;
   }
 
-  .burnStatus{
+  .burnStatus {
     border-radius: 5px;
     justify-content: center;
     align-self: center;
     font-size: 0.7rem;
   }
 
-  .card{
+  .card {
     background-color: #808080;
   }
-
- 
 }
 
 @media screen and (max-width: 480px) {
-  .side-nav-container{
+  .side-nav-container {
     display: none;
   }
 
-  .header-container{
+  .header-container {
     width: 100vw;
     display: flex;
   }
 
   .top-nav-container {
-    display:block;
+    display: block;
     position: fixed;
     width: 100vw;
     height: 50px;
@@ -845,7 +806,7 @@ list-style-type: none;
     border-radius: 10px;
     justify-content: space-between;
   }
-  
+
   .top-nav-list {
     height: 100%;
     padding: 0;
@@ -856,54 +817,48 @@ list-style-type: none;
     justify-content: left;
     align-items: right;
   }
-  
+
   .top-nav-list .row {
     width: 90%;
     height: 100%;
-    background-color: #2D8FA5;
+    background-color: #2d8fa5;
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     background: linear-gradient(45deg, #3cc2e0, #257688);
     display: flex;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     list-style-type: none;
     padding: 10px;
     justify-content: center;
   }
 
-.top-nav-list .row:hover 
-{
-  
-  background: linear-gradient(45deg, #25778a, #37adc7);
+  .top-nav-list .row:hover {
+    background: linear-gradient(45deg, #25778a, #37adc7);
+  }
 
- 
-}
+  .top-nav-list .row.admit-item {
+    background: linear-gradient(45deg, #89fab6, #0f552c);
+  }
 
-.top-nav-list .row.admit-item {
- 
-  background: linear-gradient(45deg, #89fab6, #0f552c);
-}
+  .top-nav-list .row.admit-item:hover {
+    background: linear-gradient(45deg, #4d8a65, #80e2a9);
+  }
 
-.top-nav-list .row.admit-item:hover {
-  background: linear-gradient(45deg, #4d8a65, #80e2a9);
-}
+  .top-nav-list .row.discharge-item {
+    background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
+  }
 
-.top-nav-list .row.discharge-item {
-  background: linear-gradient(45deg, #d4d4d4, #3b3b3b);
-}
+  .top-nav-list .row.discharge-item:hover {
+    background: linear-gradient(45deg, #525151, #999898);
+  }
 
-.top-nav-list .row.discharge-item:hover {
-  background: linear-gradient(45deg, #525151, #999898);
-}
-
-  .SideImageContainer{
+  .SideImageContainer {
     display: none;
   }
 
   .main-container {
-
     background-color: #808080;
     height: 100vh;
     width: 100vw;
@@ -912,7 +867,7 @@ list-style-type: none;
     top: 23%;
     left: 0%;
     z-index: 1;
-    overflow:auto;
+    overflow: auto;
   }
   .main-top-bar {
     background: linear-gradient(45deg, #cc7777, #eb2f2f);
@@ -925,60 +880,55 @@ list-style-type: none;
     top: 20%;
   }
 
-
   .main-name {
     position: absolute;
     width: 65px;
     height: 25px;
     left: 55px;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
-    
   }
 
-  .main-hp-text
-  {
+  .main-hp-text {
     position: absolute;
     width: 65px;
     height: 25px;
     left: 195px;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
   }
 
-  .main-status-text
-  {
+  .main-status-text {
     position: absolute;
     width: 65px;
     height: 25px;
     left: 315px;
     top: -10px;
-    font-family: 'Roboto Condensed';
+    font-family: "Roboto Condensed";
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 28px;
   }
 
-  .small-text-main
-  {
+  .small-text-main {
     position: absolute;
     width: 281px;
     height: 74px;
     left: 70px;
     top: 43px;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 400;
-    font-size: .8rem;
+    font-size: 0.8rem;
     line-height: 2px;
   }
 
@@ -988,17 +938,14 @@ list-style-type: none;
     height: 74px;
     left: 55%;
     top: 43px;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 2px;
   }
 
-  
-
-
-  .pokemon-container{
+  .pokemon-container {
     position: absolute;
     width: 100%;
     margin-top: -5%;
@@ -1008,12 +955,12 @@ list-style-type: none;
     overflow-y: auto;
   }
 
-  .card-image{
+  .card-image {
     height: 115px;
     margin-top: 70px;
     margin-left: -10px;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 50px;
     z-index: 1;
@@ -1022,65 +969,91 @@ list-style-type: none;
     padding-right: 55px;
   }
 
-  .card-name{
+  .card-name {
     height: 115px;
     margin-top: -115px;
     margin-left: 50px;
     font-size: 0.78rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 120px;
     z-index: 1;
   }
 
-  .card-hp
-  {
-    
+  .card-hp {
     margin-top: -119px;
     margin-left: 177px;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
   }
 
-  .card-status
-  {
+  .card-status {
     height: 115px;
     margin-top: -70px;
     margin-left: 295px;
     font-size: 0.8rem;
-    font-family: 'Lato';
+    font-family: "Lato";
     font-style: normal;
     width: 90px;
     z-index: 2;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     padding-top: 40px;
     font-weight: bold;
     border-radius: 50px;
   }
 
-  .burnStatus{
+  .burnStatus {
     border-radius: 5px;
     justify-content: center;
     align-self: center;
     font-size: 0.7rem;
   }
 
-  .card{
+  .card {
     background-color: #808080;
   }
 
-  .dlt-container{
+  .card.selected{
+    background-color: #acabab;
+  }
+
+  .dlt-container {
     background-color: black;
   }
- 
-  .poke-img{
-   height: 60px;
-   margin-top: 20px;
+
+  .poke-img {
+    height: 60px;
+    margin-top: 20px;
   }
-} 
+
+  .MuiDialogContent-root {
+    height: 60vh;
+    width: 100vw;
+    justify-content: left;
+    display: flex;
+  }
+
+
+
+  .admit-container {
+    height: 85%;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admit-label{
+    flex-direction: column;
+    display: flex;
+  }
+
+  #admit-lvl{
+    width: 50%;
+  }
+}

@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ProgressBar from '@ramonak/react-progress-bar';
 
 
 const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
   const [isSelected, setIsSelected] = useState(false);
+  const cardRef = useRef(null);
 
   const handleClick = () => {
     setIsSelected(!isSelected);
     handleCardClick();
   };
   
+  const handleOutsideClick = (event) => {
+    if (cardRef.current && !cardRef.current.contains(event.target)) {
+      setIsSelected(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', handleOutsideClick);
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
 
   function getProgressBarColor(completed) {
     if (completed >= 0 && completed <= 30) {
@@ -24,7 +37,7 @@ const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
   }
 
   return (
-    <div className={`card ${isSelected ? 'selected' : ''}`} onClick={handleClick}>
+    <div ref={cardRef} className={`card ${isSelected ? 'selected' : ''}`} onClick={handleClick}>
       <div className="card-image">
         <img src={setAdmitData.img} alt="Pokemon" className="poke-img"/>
       </div>
@@ -46,19 +59,19 @@ const Pokecard = ({ setAdmitData, index, handleCardClick, }) => {
           className="burnStatus"
           style={{
             backgroundColor:
-              setAdmitData.status === 'burned'
+              setAdmitData.status.toLowerCase() === 'burned'
                 ? '#F08030'
-                : setAdmitData.status === 'paralyzed'
+                : setAdmitData.status.toLowerCase() === 'paralyzed'
                 ? '#F8D030'
-                : setAdmitData.status === 'fainted'
+                : setAdmitData.status.toLowerCase() === 'fainted'
                 ? '#E1E1E1'
-                : setAdmitData.status === 'frozen'
+                : setAdmitData.status.toLowerCase() === 'frozen'
                 ? '#98D8D8'
-                : setAdmitData.status === 'poisoned'
+                : setAdmitData.status.toLowerCase() === 'poisoned'
                 ? '#A040A0'
-                : setAdmitData.status === 'asleep'
+                : setAdmitData.status.toLowerCase() === 'asleep'
                 ? '#A890F0'
-                : setAdmitData.status === 'confused'
+                : setAdmitData.status.toLowerCase() === 'confused'
                 ? '#F85888'
                 : '',
           }}
