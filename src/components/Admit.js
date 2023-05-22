@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import pokemonOptions from "./pokemonOptions";
 import CustomSelect from "react-select";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-import { Stack, Button, Alert } from "@mui/material/";
+import Select from "react-select";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import Axios from "axios";
 import { baseURL } from "../utils/constant";
 import { makeStyles } from "@material-ui/core/styles";
@@ -123,7 +123,7 @@ export default function Admit(props) {
       );
     } else {
       setMatchedOption(null);
-      setTypes("");
+      setTypes("AS");
       setHeight("");
       setWeight("");
       setNumber(0);
@@ -170,7 +170,6 @@ export default function Admit(props) {
       .then(() => {
         console.log("Success!");
         window.location.reload();
-        window.location.Alert();
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -219,27 +218,21 @@ export default function Admit(props) {
             </div>
 
             <div>
-      <Stack direction="column" alignItems="left" spacing={1} width={90}>
-        <label>Species: </label>
-        <Autocomplete
-        className={classes.root}
-          options={pokemonOptions}
-          getOptionLabel={(option) => option.label}
-          value={pokemonOptions.find((option) => option.label === species) || null}
-          onChange={(event, newValue) => {
-            setSpecies(newValue ? newValue.label : '');
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              value={species}
-              onChange={handleSpeciesChange}
-              onFocus={handleAutofill}
-              placeholder="Search species..."
-            />
-          )}
-        />
-      </Stack>
+            <div className='admit-spieces'>
+      <label>Species: </label>
+      <input
+        type="text"
+        value={species}
+        onChange={handleSpeciesChange}
+        onFocus={handleAutofill}
+        placeholder="Search species..."
+      /></div>
+
+      <div className="suggestions">
+        {filteredOptions.map((pokemon) => (
+          <div key={pokemon.value}>{pokemon.label}</div>
+        ))}
+      </div>
     
     </div>
           
