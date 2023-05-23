@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pokemon-ehr/static/css/main.25dbf9f4.css",
-    "main.js": "/pokemon-ehr/static/js/main.dc202323.js",
+    "main.css": "/pokemon-ehr/static/css/main.fea1c0f1.css",
+    "main.js": "/pokemon-ehr/static/js/main.08c1de9b.js",
     "static/js/787.80c0737e.chunk.js": "/pokemon-ehr/static/js/787.80c0737e.chunk.js",
     "index.html": "/pokemon-ehr/index.html",
-    "main.25dbf9f4.css.map": "/pokemon-ehr/static/css/main.25dbf9f4.css.map",
-    "main.dc202323.js.map": "/pokemon-ehr/static/js/main.dc202323.js.map",
+    "main.fea1c0f1.css.map": "/pokemon-ehr/static/css/main.fea1c0f1.css.map",
+    "main.08c1de9b.js.map": "/pokemon-ehr/static/js/main.08c1de9b.js.map",
     "787.80c0737e.chunk.js.map": "/pokemon-ehr/static/js/787.80c0737e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.25dbf9f4.css",
-    "static/js/main.dc202323.js"
+    "static/css/main.fea1c0f1.css",
+    "static/js/main.08c1de9b.js"
   ]
 }
