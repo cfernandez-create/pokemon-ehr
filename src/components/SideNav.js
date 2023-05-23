@@ -1,32 +1,61 @@
 import React from 'react';
-import {SideNavData} from './SideNavData';
+import { SideNavData } from './SideNavData';
 
 function SideNav(props) {
-const { handleOpenPopup } = props;
+  const { handleOpenPopup, handleDeleteAdmitData, selectedCardId, handleUpdateData, handleUpdateStatus } = props;
 
-const handleDischargeClick = () => {
-  
-  console.log('DISCHARGE icon clicked');
+  const handleDischargeClick = () => {
+    console.log('DISCHARGE icon clicked');
+    handleDeleteAdmitData(selectedCardId);
+  };
 
-};
+  const handleUpdateHPClick = () => {
+    console.log('HP icon clicked');
+    handleUpdateData(selectedCardId);
+  };
 
-return (
-<div className="side-nav-container">
-    <ul className="side-nav-list">
-       {SideNavData.map((val, key) => {
-        return (
+  const handleUpdateStatusClick = () => {
+    console.log('Status icon clicked');
+    handleUpdateStatus(selectedCardId);
+  };
+
+  const handleIconClick = (title) => {
+    if (title === 'ADMIT') {
+      handleOpenPopup();
+    } else if (title === 'DISCHARGE') {
+      handleDischargeClick();
+    } else if (title === 'MAX POTION') {
+      handleUpdateHPClick();
+    } else if (title === 'HEAL STATUS') {
+      handleUpdateStatusClick();
+    }
+  };
+
+  return (
+    <div className="side-nav-container">
+      <ul className="side-nav-list">
+        {SideNavData.map((val, key) => (
           <li
-          key={key}
-          className={val.title === 'ADMIT' ? 'row admit-item' 
-          : val.title === 'DISCHARGE' ? 'row discharge-item' 
-          : 'row'}>
-          <div onClick={val.title === 'ADMIT' ? handleOpenPopup : handleDischargeClick}>{val.icon}{val.title}</div>
-        </li>
-        );
-      })}
-     </ul>
-     </div>
-    );
+            key={key}
+            className={
+              val.title === 'ADMIT'
+                ? 'column admit-item'
+                : val.title === 'DISCHARGE'
+                ? 'column discharge-item'
+                : val.title === 'DOCUMENT'
+                ? 'column document-item'
+                : val.title === 'HISTORY'
+                ? 'column history-item'
+                : 'column'
+            }
+          >
+            <div onClick={() => handleIconClick(val.title)}>{val.icon}
+            <span className="side-nav-title">{val.title}</span></div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default SideNav;

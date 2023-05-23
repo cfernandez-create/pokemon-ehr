@@ -14,8 +14,8 @@ export default function Header({ selectedCardId, admitData}) {
   
   return (
     <div>
-      <div className='header' key={selectedCard._id}>
-        <div className='header-container'>
+      <div className='header' >
+        <div className='header-container' key={selectedCard._id}>
           <h3 className='name-header'>{selectedCard.name}</h3>
           <h3 className='lvl-header'>Lvl. {selectedCard.level}</h3>
         </div>

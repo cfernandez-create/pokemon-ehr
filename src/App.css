@@ -145,7 +145,7 @@ body {
   top: -10px;
   font-family: "Roboto Condensed";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 28px;
 }
@@ -158,7 +158,7 @@ body {
   top: -10px;
   font-family: "Roboto Condensed";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 28px;
 }
@@ -171,7 +171,7 @@ body {
   top: -10px;
   font-family: "Roboto Condensed";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 28px;
 }
@@ -188,7 +188,7 @@ body {
 .card-image {
   height: 115px;
   margin-top: 60px;
-  margin-left: -4%;
+  margin-left: -2%;
   width: 150px;
   align-items: center;
   justify-content: center;
@@ -202,6 +202,7 @@ body {
   font-size: 0.78rem;
   font-family: "Lato";
   font-style: normal;
+  font-weight: 600;
   width: 120px;
   z-index: 1;
 }
@@ -246,321 +247,105 @@ body {
 }
 
 .side-nav-container {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  width: 304px;
-  height: 100vh;
-  margin-top: 45%;
-  padding-bottom: 200px;
+  width: 100vw;
+  height: 50px;
+  top: 61%;
+  border-radius: 10px;
+  justify-content: space-between;
 }
 
 .side-nav-list {
-  height: auto;
+  height: 100%;
   padding: 0;
-  width: auto;
-  padding-bottom: 200px;
-  margin-top: -41%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-top: -8px;
+  margin-left: -8px;
+  justify-content: left;
+  align-items: right;
 }
 
-.side-nav-list .row {
-  width: 100%;
-  height: auto;
+.side-nav-list .column {
+  width: 90%;
+  height: 100%;
   background-color: #2d8fa5;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #3cc2e0, #257688);
   display: flex;
+  flex-direction: column;
   padding: 10px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   font-family: "Roboto Condensed";
-  list-style-type: none;
-  padding-left: 10px;
+  justify-content: center;
 }
 
-.side-nav-list .row:hover {
-  width: 100%;
-  height: 50px;
-  background-color: #2d8fa586;
-  border: 1px solid black;
-  display: flex;
-  padding: 10px;
-  border-radius: 0 10px 10px 0;
-  font-family: "Roboto Condensed";
-  list-style-type: none;
+.side-nav-list .column:hover {
+  background: linear-gradient(45deg, #25778a, #37adc7);
 }
 
-.side-nav-list .row.admit-item {
-  background-color: #6dc18f;
+.side-nav-list .column.admit-item {
+  background: linear-gradient(45deg, #89fab6, #0f552c);
 }
 
-.side-nav-list .row.admit-item:hover {
-  background-color: #589b73e5;
+.side-nav-list .column.admit-item:hover {
+  background: linear-gradient(45deg, #0f552c, #89fab6);
 }
 
-.side-nav-list .row.discharge-item {
-  background-color: #c45757;
+.side-nav-list .column.discharge-item {
+  background: linear-gradient(45deg, #eb5454, #792222);
 }
 
-.side-nav-list .row.discharge-item:hover {
-  background-color: #8a5656;
+.side-nav-list .column.discharge-item:hover {
+  background: linear-gradient(45deg, #792222, #eb5454);
+}
+
+.side-nav-list .column.history-item {
+  background: linear-gradient(45deg, #bbbbbb, #363636);
+}
+
+.side-nav-list .column.history-item:hover {
+  background: linear-gradient(45deg, #363636, #bbbbbb);
+}
+
+.side-nav-list .column.document-item {
+  background: linear-gradient(45deg, #bbbbbb, #363636);
+}
+
+.side-nav-list .column.document-item:hover {
+  background: linear-gradient(45deg, #363636, #bbbbbb);
+}
+
+.side-nav-title{
+  padding-left: 20px;
+  font-weight: 600;
 }
 
 .SideImageContainer {
   position: fixed;
-  border: solid;
+  border: 1px solid;
   height: 30%;
   width: 21%;
   margin-top: 11%;
   border-radius: 10px;
-  background-color: #f7f7f7;
+  box-shadow: 8px 8px 4px rgba(19, 18, 18, 0.2);
+  background-color: #949292;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
-.SideImageContainer img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.side-image{
+  width: 15em;
 }
 
-.pokemon-sprite {
-  width: 110%;
-  height: 110%;
-  padding-right: 40px;
-  padding-bottom: 60px;
-}
 
 .top-nav-container {
   display: none;
-}
-
-@media screen and (max-width: 1024px) {
-  .header-container {
-    width: 100vw;
-    display: flex;
-  }
-
-  .main-container {
-    position: absolute;
-    background-color: #808080;
-    height: calc(100vh - 170px);
-    width: 50vw;
-    top: 15%;
-    left: 50%;
-    z-index: 1;
-    overflow-y: auto;
-    flex: 1;
-    border: 1px solid;
-  }
-  .main-top-bar {
-    background: linear-gradient(45deg, #cc7777, #eb2f2f);
-    position: fixed;
-    height: 44px;
-    width: 50vw;
-    border: 1px solid;
-    z-index: 2;
-    display: flex;
-    left: 35.4%;
-    justify-content: space-between;
-  }
-
-  .main-name {
-    position: absolute;
-    width: 30%;
-    height: 25px;
-    left: 55px;
-    top: -10px;
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 28px;
-  }
-
-  .main-hp-text {
-    position: absolute;
-    width: 30%;
-    height: 25px;
-    left: 50%;
-    top: -10px;
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 28px;
-  }
-
-  .main-status-text {
-    position: absolute;
-    width: 65px;
-    height: 25px;
-    left: 75%;
-    top: -10px;
-    font-family: "Roboto Condensed";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 28px;
-  }
-
-  /* .small-text-main
-  {
-    position: absolute;
-    width:30%;
-    height: 25px;
-    left: 50%;
-    top: -10px;
-    font-family: 'Roboto Condensed';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 2px;
-  } */
-
-  .pokemon-container {
-    width: 50vw;
-    margin-top: -1px;
-    background-color: #808080;
-    flex: 1;
-    height: 150vh;
-    overflow-y: scroll;
-  }
-
-  .card-image {
-    height: 115px;
-    margin-top: 60px;
-    margin-left: -4%;
-    font-size: 0.78rem;
-    font-family: "Lato";
-    font-style: normal;
-    width: 50px;
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
-    padding-right: 55px;
-  }
-
-  .card-name {
-    height: 115px;
-    margin-top: -115px;
-    margin-left: 10%;
-    font-size: 0.78rem;
-    font-family: "Lato";
-    font-style: normal;
-    width: 120px;
-    z-index: 1;
-  }
-
-  .card-hp {
-    margin-top: -119px;
-    margin-left: 50%;
-    font-family: "Lato";
-    font-style: normal;
-    width: 90px;
-    z-index: 2;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
-  }
-
-  .card-status {
-    height: 115px;
-    margin-top: -70px;
-    margin-left: 75%;
-    font-size: 0.8rem;
-    font-family: "Lato";
-    font-style: normal;
-    width: 90px;
-    z-index: 2;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
-    font-weight: bold;
-    border-radius: 50px;
-  }
-
-  .burnStatus {
-    border-radius: 5px;
-    justify-content: center;
-    align-self: center;
-    font-size: 0.7rem;
-  }
-
-  .card {
-    background-color: #808080;
-  }
-
-  .side-nav-container {
-    position: fixed;
-    width: 304px;
-    height: 100vh;
-    margin-top: 45%;
-  }
-
-  .side-nav-list {
-    height: auto;
-    padding: 0;
-    width: 100%;
-  }
-
-  .side-nav-list .row {
-    width: 100%;
-    height: 50px;
-    background-color: #2d8fa5;
-    border: 1px solid black;
-    display: flex;
-    padding: 10px;
-    border-radius: 0 10px 10px 0;
-    font-family: "Roboto Condensed";
-    list-style-type: none;
-    padding-left: 10px;
-  }
-
-  .side-nav-list .row:hover {
-    width: 100%;
-    height: 50px;
-    background-color: #2d8fa586;
-    border: 1px solid black;
-    display: flex;
-    padding: 10px;
-    border-radius: 0 10px 10px 0;
-    font-family: "Roboto Condensed";
-    list-style-type: none;
-  }
-
-  .side-nav-list .row.admit-item {
-    background-color: #6dc18f;
-  }
-
-  .side-nav-list .row.admit-item:hover {
-    background-color: #589b73e5;
-  }
-
-  .side-nav-list .row.discharge-item {
-    background-color: #b8b8b8;
-  }
-
-  .side-nav-list .row.discharge-item:hover {
-    background-color: #797979;
-  }
-
-  /* .SideImageContainer{
-  position: fixed;
-  border: solid;
-  height: 346px;
-  width: 304px;
-  background-color: aqua;
-  margin-top: 11.5%;
-  border-radius: 10px;
-  background-color: #f7f7f7;
-  justify-content: center;
-  align-items: center;
-} */
-
-  /* .pokemon-sprite{
-  width: 400px;
-  height: 400px;
-  padding-right: 90px;
-  padding-bottom: 60px;
-} */
 }
 
 @media screen and (max-width: 810px) {
@@ -684,7 +469,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -697,7 +482,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -710,7 +495,7 @@ body {
     top: -10px;
     font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1rem;
     line-height: 28px;
   }
@@ -723,7 +508,7 @@ body {
     top: 43px;
     font-family: "Lato";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 0.8rem;
     line-height: 2px;
   }
@@ -760,6 +545,7 @@ body {
     font-size: 0.78rem;
     font-family: "Lato";
     font-style: normal;
+    font-weight: 600;
     width: 120px;
     z-index: 1;
   }
@@ -803,6 +589,11 @@ body {
     background-color: #808080;
   }
 }
+
+.card.selected{
+  background-color: #acabab;
+}
+
 
 @media screen and (max-width: 480px) {
   .side-nav-container {
@@ -910,8 +701,9 @@ body {
     border: 2px solid;
     z-index: 2;
     display: flex;
+    position: fixed;
     left: 0px;
-    top: 20%;
+    top: 21%;
   }
 
   .main-name {
@@ -980,7 +772,7 @@ body {
   }
 
   .pokemon-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     margin-top: -5%;
     background-color: #808080;

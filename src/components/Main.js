@@ -3,6 +3,7 @@ import Pokecard from './Pokecard';
 import Header from './Header';
 import SideImage from './SideImage';
 import TopNav from './TopNav';
+import SideNav from './SideNav';
 import Popup from './Popup';
 import axios from 'axios';
 import { baseURL } from "../utils/constant";
@@ -14,11 +15,19 @@ export default function Main() {
   const [selectedCardData, setSelectedCardData] = useState(null);
 
   useEffect(() => {
-    axios.get(`${baseURL}/get`).then((res) => {
-      console.log(res.data);
-      setAdmitData(res.data);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${baseURL}/get`);
+        console.log(response.data);
+        setAdmitData(response.data);
+      } catch (error) {
+        console.error('An error occurred while fetching the data:', error);
+      }
+    };
+  
+    fetchData();
   }, []);
+  
 
   const deleteAdmit = (_id) => {
     return axios.delete(`${baseURL}/delete/${_id}`).then((res) => {
@@ -134,6 +143,13 @@ export default function Main() {
         handleDeleteAdmitData={handleDeleteAdmitData}
         selectedCardId={selectedCardId}
       />
+       <SideNav
+        handleOpenPopup={handleOpenPopup}
+        handleUpdateData={handleUpdateData}
+        handleUpdateStatus={handleUpdateStatus}
+        handleDeleteAdmitData={handleDeleteAdmitData}
+        selectedCardId={selectedCardId}
+      />
       <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} handleClosePopup={handleClosePopup} />
       <div className="main-container">
         <div className="main-top-bar">
@@ -171,7 +187,6 @@ export default function Main() {
           <SideImage
             selectedCardId={selectedCardId}
             admitData={admitData}
-            selectedCardData={selectedCardData}
           />
         )}
       </div>

@@ -13,7 +13,7 @@ function App() {
   
   return (
     <div className="App">
-       <SideImage/>
+       <SideImage selectedCardId={selectedCardId} admitData={admitData}/>
        <Header selectedCardId={selectedCardId} admitData={admitData} />
       <SideNav />
       <Main selectedCardId={selectedCardId} admitData={admitData} setSelectedCardId={setSelectedCardId} setAdmitData={setAdmitData} />
