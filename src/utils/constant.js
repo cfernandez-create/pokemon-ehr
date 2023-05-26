@@ -1,1 +1,1 @@
-export const baseURL = "http://localhost:5000/api";
+export const baseURL = "https://us-central1-pokemon-ehr.cloudfunctions.net/app/api";

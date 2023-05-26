@@ -79,6 +79,7 @@ export default function Main() {
 
   const handleUpdateSuccess = (data) => {
     console.log('HP updated:', data);
+    window.location.reload();
     const updatedAdmitData = admitData.map((item) => {
       if (item._id === data._id) {
         return { ...item, hp: data.hp };
@@ -86,8 +87,6 @@ export default function Main() {
       return item;
     });
     setAdmitData(updatedAdmitData);
-    window.alert(`We've healed your Pokémon back to perfect health!`).reload();
-    window.location.reload(true);
   };
   const handleUpdateError = (error) => {
     console.error('An error occurred while updating HP:', error);
@@ -102,6 +101,7 @@ export default function Main() {
   };
   const handleUpdateStatusSuccess = (data) => {
     console.log('Status updated:', data);
+    window.location.reload();
     const updatedStatusAdmitData = admitData.map((item) => {
       if (item._id === data._id) {
         return { ...item, status: data.status };
@@ -109,8 +109,6 @@ export default function Main() {
       return item;
     });
     setAdmitData(updatedStatusAdmitData);
-    window.alert(`Your Pokemon is fighting fit!`).reload();
-    window.location.reload(true);
   };
   const handleUpdateStatusError = (error) => {
     console.error('An error occurred while updating the status:', error);

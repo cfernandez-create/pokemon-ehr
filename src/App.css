@@ -340,7 +340,8 @@ body {
 }
 
 .side-image{
-  width: 15em;
+  width: 75%;
+  display: flex;
 }
 
 
@@ -689,7 +690,7 @@ body {
     width: 100vw;
     min-width: 430px;
     max-height: calc(100vh - 170px);
-    top: 23%;
+    top: 26%;
     left: 0%;
     z-index: 1;
     overflow: auto;
@@ -703,7 +704,7 @@ body {
     display: flex;
     position: fixed;
     left: 0px;
-    top: 21%;
+    top: 26%;
   }
 
   .main-name {
@@ -772,9 +773,9 @@ body {
   }
 
   .pokemon-container {
-    position: fixed;
+    position: absolute;
     width: 100%;
-    margin-top: -5%;
+    margin-top: 0;
     background-color: #808080;
     flex: 1;
     height: 100%;
@@ -883,3 +884,4 @@ body {
     width: 50%;
   }
 }
+
