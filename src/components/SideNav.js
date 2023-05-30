@@ -1,22 +1,48 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { SideNavData } from './SideNavData';
+import {
+  handleDeleteSuccess,
+  handleDeleteError,
+  deleteAdmit,
+} from "../functions/deleteAdmit";
+import {
+  updateAdmitHP,
+  handleUpdateSuccess,
+  handleUpdateError,
+} from "../functions/updateAdmitHP";
+import {
+  updateAdmitStatus,
+  handleUpdateStatusSuccess,
+  handleUpdateStatusError
+} from "../functions/updateAdmitStatus"
+import { baseURL } from "../utils/constant";
 
 function SideNav(props) {
-  const { handleOpenPopup, handleDeleteAdmitData, selectedCardId, handleUpdateData, handleUpdateStatus } = props;
+  const [admitData, setAdmitData] = useState([]);
+  const { handleOpenPopup, selectedCardId, } = props;
 
+  
   const handleDischargeClick = () => {
-    console.log('DISCHARGE icon clicked');
-    handleDeleteAdmitData(selectedCardId);
+    console.log("DISCHARGE icon clicked");
+    deleteAdmit(selectedCardId, baseURL)
+      .then(handleDeleteSuccess)
+      .catch(handleDeleteError);
   };
 
   const handleUpdateHPClick = () => {
-    console.log('HP icon clicked');
-    handleUpdateData(selectedCardId);
+    console.log("HP icon clicked");
+    const newHP = 100;
+    updateAdmitHP(selectedCardId, newHP, baseURL)
+      .then((data) => handleUpdateSuccess(data, admitData, setAdmitData))
+      .catch(handleUpdateError);
   };
 
   const handleUpdateStatusClick = () => {
-    console.log('Status icon clicked');
-    handleUpdateStatus(selectedCardId);
+    console.log("Status icon clicked");
+    const newStatus = '';
+    updateAdmitStatus(selectedCardId, newStatus, baseURL)
+      .then((data) => handleUpdateStatusSuccess(data, admitData, setAdmitData))
+      .catch(handleUpdateStatusError)
   };
 
   const handleIconClick = (title) => {

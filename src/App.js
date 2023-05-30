@@ -1,22 +1,28 @@
 // App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import SideNav from "./components/SideNav";
-import SideImage from "./components/SideImage";
 import Main from "./components/Main";
+import {fetchData} from "./functions/fetchData"
+import {baseURL} from "./utils/constant"
 
 
 function App() {
-  const [selectedCardId, setSelectedCardId] = useState(null);
   const [admitData, setAdmitData] = useState([]);
+ 
+ 
+
+  useEffect (() => {
+    fetchData(baseURL, setAdmitData);
+  }, []);
+
   
   return (
     <div className="App">
-       <SideImage selectedCardId={selectedCardId} admitData={admitData}/>
-       <Header selectedCardId={selectedCardId} admitData={admitData} />
-      <SideNav />
-      <Main selectedCardId={selectedCardId} admitData={admitData} setSelectedCardId={setSelectedCardId} setAdmitData={setAdmitData} />
+      <Header/>
+      <SideNav/>
+      <Main/>
     </div>
   );
 }
